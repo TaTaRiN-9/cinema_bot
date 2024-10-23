@@ -1,2 +1,2 @@
-tg_bot/App.config
-cinema/appsettings.Development.json
+*.config
+appsettings.Development.json
