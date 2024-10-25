@@ -8,5 +8,6 @@ namespace cinema.Data.Models
         public int id { get; set; }
         public string chat_id { get; set; }
         public string phone_number { get; set; }
+        public List<Ticket> tickets { get; set; }
     }
 }
