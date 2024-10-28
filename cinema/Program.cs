@@ -1,4 +1,6 @@
+using cinema.Abstractions;
 using cinema.Data;
+using cinema.Data.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +17,9 @@ builder.Services.AddDbContext<CinemaDbContext>(
     {
         options.UseNpgsql(builder.Configuration.GetConnectionString("db_conn"));
     });
+
+// DI
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 
