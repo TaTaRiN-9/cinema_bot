@@ -14,6 +14,7 @@ namespace cinema.Data
         public DbSet<User> users { get; set; } = null!;
         public DbSet<Ticket> tickets { get; set; } = null!;
         public DbSet<Session> sessions { get; set; } = null!;
+        public DbSet<Movie> movies { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,6 +23,7 @@ namespace cinema.Data
             modelBuilder.ApplyConfiguration(new SessionConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
 
+            // добавление первоначальных данных в бд
             modelBuilder.Entity<User>()
                 .HasData(
                     new User
@@ -35,6 +37,23 @@ namespace cinema.Data
                         id = 2,
                         chat_id = "891245653423",
                         phone_number = "89967351259",
+                    });
+
+            modelBuilder.Entity<Movie>()
+                .HasData(
+                    new Movie
+                    {
+                        id = 1,
+                        title = "Фильм 1",
+                        description = "Тут некоторое описание для фильма 1",
+                        duration = 104
+                    },
+                    new Movie
+                    {
+                        id = 2,
+                        title = "Фильм 2",
+                        description = "Тут некоторое описание для фильма 2",
+                        duration = 98
                     });
 
             modelBuilder.Entity<Session>()

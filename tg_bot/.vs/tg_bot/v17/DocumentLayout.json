@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\cinema_bot\\tg_bot\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F6B26E20-3A2E-4C41-9BAB-5D0F6B13DDBF}|tg_bot.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\tg_bot\\botengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B26E20-3A2E-4C41-9BAB-5D0F6B13DDBF}|tg_bot.csproj|solutionrelative:botengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F6B26E20-3A2E-4C41-9BAB-5D0F6B13DDBF}|tg_bot.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\tg_bot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B26E20-3A2E-4C41-9BAB-5D0F6B13DDBF}|tg_bot.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -35,6 +39,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BotEngine.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\tg_bot\\BotEngine.cs",
+              "RelativeDocumentMoniker": "BotEngine.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\cinema_bot\\tg_bot\\BotEngine.cs",
+              "RelativeToolTip": "BotEngine.cs",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAAAGcAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T08:31:36.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\tg_bot\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -47,7 +64,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ChatState.cs",
               "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\tg_bot\\storage\\ChatState.cs",
               "RelativeDocumentMoniker": "storage\\ChatState.cs",
@@ -55,8 +72,7 @@
               "RelativeToolTip": "storage\\ChatState.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T10:45:36.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-19T10:45:36.703Z"
             }
           ]
         }
