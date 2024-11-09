@@ -8,9 +8,8 @@ namespace cinema.Data.Models
     public class Ticket
     {
         public int id { get; set; }
-        // Переделать (row и seat)?
-        public int row_number { get; set; }
-        public int seat_number { get; set; }
+        public int seat_id { get; set; }
+        public Seat? seat { get; set; }
         // Тут будет использоваться каскадное удаление, так как тип int дает понять,
         // что свойство должно быть связано, в то время как само свойство может иметь nullable-тип
         public int user_id { get; set; }

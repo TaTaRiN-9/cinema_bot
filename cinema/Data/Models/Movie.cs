@@ -11,5 +11,6 @@ namespace cinema.Data.Models
         // на первое время будем использовать int в минутах. Потом можно будет применить тип duration в postgres
         public int duration { get; set; }
         public string? photo_url { get; set; }
+        public Session? session { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using cinema.Data;
@@ -11,9 +12,11 @@ using cinema.Data;
 namespace cinema.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    partial class CinemaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241109162501_add-seat")]
+    partial class addseat
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,38 +24,6 @@ namespace cinema.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
-
-            modelBuilder.Entity("cinema.Data.Models.Hall", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("name")
-                        .IsUnique();
-
-                    b.ToTable("tbl_hall");
-
-                    b.HasData(
-                        new
-                        {
-                            id = 1,
-                            name = "Малый зал"
-                        },
-                        new
-                        {
-                            id = 2,
-                            name = "Большой зал"
-                        });
-                });
 
             modelBuilder.Entity("cinema.Data.Models.Movie", b =>
                 {
@@ -102,41 +73,6 @@ namespace cinema.Migrations
                         });
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Row", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
-
-                    b.Property<int>("hall_id")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("number")
-                        .HasColumnType("integer");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("hall_id");
-
-                    b.ToTable("tbl_row");
-
-                    b.HasData(
-                        new
-                        {
-                            id = 1,
-                            hall_id = 1,
-                            number = 1
-                        },
-                        new
-                        {
-                            id = 2,
-                            hall_id = 1,
-                            number = 2
-                        });
-                });
-
             modelBuilder.Entity("cinema.Data.Models.Seat", b =>
                 {
                     b.Property<int>("id")
@@ -155,8 +91,6 @@ namespace cinema.Migrations
                         .HasColumnType("boolean");
 
                     b.HasKey("id");
-
-                    b.HasIndex("row_id");
 
                     b.ToTable("tbl_seat");
 
@@ -236,12 +170,6 @@ namespace cinema.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("id");
-
-                    b.HasIndex("hall_id")
-                        .IsUnique();
-
-                    b.HasIndex("movie_id")
-                        .IsUnique();
 
                     b.ToTable("tbl_session");
 
@@ -363,47 +291,6 @@ namespace cinema.Migrations
                         });
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Row", b =>
-                {
-                    b.HasOne("cinema.Data.Models.Hall", "hall")
-                        .WithMany("rows")
-                        .HasForeignKey("hall_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("hall");
-                });
-
-            modelBuilder.Entity("cinema.Data.Models.Seat", b =>
-                {
-                    b.HasOne("cinema.Data.Models.Row", "row")
-                        .WithMany("seats")
-                        .HasForeignKey("row_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("row");
-                });
-
-            modelBuilder.Entity("cinema.Data.Models.Session", b =>
-                {
-                    b.HasOne("cinema.Data.Models.Hall", "hall")
-                        .WithOne("session")
-                        .HasForeignKey("cinema.Data.Models.Session", "hall_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("cinema.Data.Models.Movie", "movie")
-                        .WithOne("session")
-                        .HasForeignKey("cinema.Data.Models.Session", "movie_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("hall");
-
-                    b.Navigation("movie");
-                });
-
             modelBuilder.Entity("cinema.Data.Models.Ticket", b =>
                 {
                     b.HasOne("cinema.Data.Models.Seat", "seat")
@@ -429,23 +316,6 @@ namespace cinema.Migrations
                     b.Navigation("session");
 
                     b.Navigation("user");
-                });
-
-            modelBuilder.Entity("cinema.Data.Models.Hall", b =>
-                {
-                    b.Navigation("rows");
-
-                    b.Navigation("session");
-                });
-
-            modelBuilder.Entity("cinema.Data.Models.Movie", b =>
-                {
-                    b.Navigation("session");
-                });
-
-            modelBuilder.Entity("cinema.Data.Models.Row", b =>
-                {
-                    b.Navigation("seats");
                 });
 
             modelBuilder.Entity("cinema.Data.Models.Seat", b =>

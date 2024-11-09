@@ -10,14 +10,6 @@ namespace cinema.Data.Configuration
         {
             builder.HasKey(t => t.id);
 
-            builder.HasIndex(
-                t => new
-                {
-                    t.row_number,
-                    t.seat_number
-                })
-                .IsUnique();
-
             // устанавливаем связь один ко многим между пользователем и билетами
             builder.HasOne(t => t.user)
                 .WithMany(u => u.tickets)

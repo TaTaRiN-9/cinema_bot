@@ -15,15 +15,39 @@ namespace cinema.Data
         public DbSet<Ticket> tickets { get; set; } = null!;
         public DbSet<Session> sessions { get; set; } = null!;
         public DbSet<Movie> movies { get; set; } = null!;
+        public DbSet<Seat> seats { get; set; } = null!;
+        public DbSet<Hall> halls { get; set; } = null!;
+        public DbSet<Row> rows { get; set; } = null!;
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new TicketConfiguration());
-            //modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            modelBuilder.ApplyConfiguration(new SessionConfiguration());
-            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             // добавление первоначальных данных в бд
+            modelBuilder.Entity<Hall>()
+                .HasData(
+                    new Hall { id = 1, name = "Малый зал" },
+                    new Hall { id = 2, name = "Большой зал" }
+                );
+
+            modelBuilder.Entity<Row>()
+                .HasData(
+                    new Row { id = 1, number = 1, hall_id = 1 },
+                    new Row { id = 2, number = 2, hall_id = 1 }
+                );
+
+            modelBuilder.Entity<Seat>()
+                .HasData(
+                    new Seat { id = 1, row_id = 1, number = 1, status = true },
+                    new Seat { id = 2, row_id = 1, number = 1, status = true },
+                    new Seat { id = 3, row_id = 1, number = 2, status = true },
+                    new Seat { id = 4, row_id = 1, number = 3, status = true },
+                    new Seat { id = 5, row_id = 2, number = 1, status = true },
+                    new Seat { id = 6, row_id = 2, number = 2, status = false },
+                    new Seat { id = 7, row_id = 2, number = 3, status = false }
+                );
+
             modelBuilder.Entity<User>()
                 .HasData(
                     new User
@@ -37,7 +61,8 @@ namespace cinema.Data
                         id = 2,
                         chat_id = "891245653423",
                         phone_number = "89967351259",
-                    });
+                    }
+                    );
 
             modelBuilder.Entity<Movie>()
                 .HasData(
@@ -70,11 +95,12 @@ namespace cinema.Data
 
             modelBuilder.Entity<Ticket>()
                 .HasData(
-                    new Ticket { id = 1, row_number = 1, seat_number = 1, session_id = 1, user_id = 1 },
-                    new Ticket { id = 2, row_number = 1, seat_number = 2, session_id = 1, user_id = 1 },
-                    new Ticket { id = 3, row_number = 1, seat_number = 3, session_id = 1, user_id = 2 },
-                    new Ticket { id = 4, row_number = 1, seat_number = 4, session_id = 1, user_id = 2 },
-                    new Ticket { id = 5, row_number = 1, seat_number = 6, session_id = 1, user_id = 2 });
+                    new Ticket { id = 1, seat_id = 1, session_id = 1, user_id = 1 },
+                    new Ticket { id = 2, seat_id = 2, session_id = 1, user_id = 1 },
+                    new Ticket { id = 3, seat_id = 3, session_id = 1, user_id = 2 },
+                    new Ticket { id = 4, seat_id = 4, session_id = 1, user_id = 2 },
+                    new Ticket { id = 5, seat_id = 5, session_id = 1, user_id = 2 }
+                );
         }
     }
 }
