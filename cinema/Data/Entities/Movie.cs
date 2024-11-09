@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace cinema.Data.Models
+namespace cinema.Data.Entities
 {
     [Table("tbl_movie")]
     public class Movie

@@ -1,4 +1,4 @@
-﻿using cinema.Data.Models;
+﻿using cinema.Data.Entities;
 
 namespace cinema.Abstractions
 {
@@ -6,7 +6,7 @@ namespace cinema.Abstractions
     {
         Task<User> Create(User user);
         Task<User> GetByChatId(string chat_id);
-        Task<User> GetById(int id);
-        Task<bool> UpdateData(int id, string phone_number);
+        Task<User> GetById(Guid id);
+        Task<bool> Update(Guid id, string phone_number);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 using cinema.Data.Configuration;
-using cinema.Data.Models;
+using cinema.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace cinema.Data
@@ -47,18 +47,19 @@ namespace cinema.Data
                     new Seat { id = 6, row_id = 2, number = 2, status = false },
                     new Seat { id = 7, row_id = 2, number = 3, status = false }
                 );
-
+            Guid guid1 = Guid.NewGuid();
+            Guid guid2 = Guid.NewGuid();
             modelBuilder.Entity<User>()
                 .HasData(
                     new User
                     {
-                        id = 1,
+                        id = guid1,
                         chat_id = "89123453423",
                         phone_number = "89962963698"
                     },
                     new User
                     {
-                        id = 2,
+                        id = guid2,
                         chat_id = "891245653423",
                         phone_number = "89967351259",
                     }
@@ -95,11 +96,11 @@ namespace cinema.Data
 
             modelBuilder.Entity<Ticket>()
                 .HasData(
-                    new Ticket { id = 1, seat_id = 1, session_id = 1, user_id = 1 },
-                    new Ticket { id = 2, seat_id = 2, session_id = 1, user_id = 1 },
-                    new Ticket { id = 3, seat_id = 3, session_id = 1, user_id = 2 },
-                    new Ticket { id = 4, seat_id = 4, session_id = 1, user_id = 2 },
-                    new Ticket { id = 5, seat_id = 5, session_id = 1, user_id = 2 }
+                    new Ticket { id = 1, seat_id = 1, session_id = 1, user_id = guid1 },
+                    new Ticket { id = 2, seat_id = 2, session_id = 1, user_id = guid1 },
+                    new Ticket { id = 3, seat_id = 3, session_id = 1, user_id = guid2 },
+                    new Ticket { id = 4, seat_id = 4, session_id = 1, user_id = guid2 },
+                    new Ticket { id = 5, seat_id = 5, session_id = 1, user_id = guid2 }
                 );
         }
     }

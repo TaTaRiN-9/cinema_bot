@@ -22,7 +22,7 @@ namespace cinema.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("cinema.Data.Models.Hall", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Hall", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -54,7 +54,7 @@ namespace cinema.Migrations
                         });
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Movie", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Movie", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -102,7 +102,7 @@ namespace cinema.Migrations
                         });
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Row", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Row", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -137,7 +137,7 @@ namespace cinema.Migrations
                         });
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Seat", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Seat", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -212,7 +212,7 @@ namespace cinema.Migrations
                         });
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Session", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Session", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -257,7 +257,7 @@ namespace cinema.Migrations
                         });
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Ticket", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Ticket", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -271,8 +271,8 @@ namespace cinema.Migrations
                     b.Property<int>("session_id")
                         .HasColumnType("integer");
 
-                    b.Property<int>("user_id")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("user_id")
+                        .HasColumnType("uuid");
 
                     b.HasKey("id");
 
@@ -291,45 +291,43 @@ namespace cinema.Migrations
                             id = 1,
                             seat_id = 1,
                             session_id = 1,
-                            user_id = 1
+                            user_id = new Guid("04e35a41-d0f4-423a-a264-48af8da26f30")
                         },
                         new
                         {
                             id = 2,
                             seat_id = 2,
                             session_id = 1,
-                            user_id = 1
+                            user_id = new Guid("04e35a41-d0f4-423a-a264-48af8da26f30")
                         },
                         new
                         {
                             id = 3,
                             seat_id = 3,
                             session_id = 1,
-                            user_id = 2
+                            user_id = new Guid("7ecc95e9-d57d-42f4-b346-703f97e6b1bd")
                         },
                         new
                         {
                             id = 4,
                             seat_id = 4,
                             session_id = 1,
-                            user_id = 2
+                            user_id = new Guid("7ecc95e9-d57d-42f4-b346-703f97e6b1bd")
                         },
                         new
                         {
                             id = 5,
                             seat_id = 5,
                             session_id = 1,
-                            user_id = 2
+                            user_id = new Guid("7ecc95e9-d57d-42f4-b346-703f97e6b1bd")
                         });
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.User", b =>
+            modelBuilder.Entity("cinema.Data.Entities.User", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<Guid>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("chat_id")
                         .IsRequired()
@@ -351,21 +349,21 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = 1,
+                            id = new Guid("04e35a41-d0f4-423a-a264-48af8da26f30"),
                             chat_id = "89123453423",
                             phone_number = "89962963698"
                         },
                         new
                         {
-                            id = 2,
+                            id = new Guid("7ecc95e9-d57d-42f4-b346-703f97e6b1bd"),
                             chat_id = "891245653423",
                             phone_number = "89967351259"
                         });
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Row", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Row", b =>
                 {
-                    b.HasOne("cinema.Data.Models.Hall", "hall")
+                    b.HasOne("cinema.Data.Entities.Hall", "hall")
                         .WithMany("rows")
                         .HasForeignKey("hall_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -374,9 +372,9 @@ namespace cinema.Migrations
                     b.Navigation("hall");
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Seat", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Seat", b =>
                 {
-                    b.HasOne("cinema.Data.Models.Row", "row")
+                    b.HasOne("cinema.Data.Entities.Row", "row")
                         .WithMany("seats")
                         .HasForeignKey("row_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -385,17 +383,17 @@ namespace cinema.Migrations
                     b.Navigation("row");
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Session", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Session", b =>
                 {
-                    b.HasOne("cinema.Data.Models.Hall", "hall")
+                    b.HasOne("cinema.Data.Entities.Hall", "hall")
                         .WithOne("session")
-                        .HasForeignKey("cinema.Data.Models.Session", "hall_id")
+                        .HasForeignKey("cinema.Data.Entities.Session", "hall_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("cinema.Data.Models.Movie", "movie")
+                    b.HasOne("cinema.Data.Entities.Movie", "movie")
                         .WithOne("session")
-                        .HasForeignKey("cinema.Data.Models.Session", "movie_id")
+                        .HasForeignKey("cinema.Data.Entities.Session", "movie_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -404,21 +402,21 @@ namespace cinema.Migrations
                     b.Navigation("movie");
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Ticket", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Ticket", b =>
                 {
-                    b.HasOne("cinema.Data.Models.Seat", "seat")
+                    b.HasOne("cinema.Data.Entities.Seat", "seat")
                         .WithOne("ticket")
-                        .HasForeignKey("cinema.Data.Models.Ticket", "seat_id")
+                        .HasForeignKey("cinema.Data.Entities.Ticket", "seat_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("cinema.Data.Models.Session", "session")
+                    b.HasOne("cinema.Data.Entities.Session", "session")
                         .WithMany("tickets")
                         .HasForeignKey("session_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("cinema.Data.Models.User", "user")
+                    b.HasOne("cinema.Data.Entities.User", "user")
                         .WithMany("tickets")
                         .HasForeignKey("user_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -431,34 +429,34 @@ namespace cinema.Migrations
                     b.Navigation("user");
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Hall", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Hall", b =>
                 {
                     b.Navigation("rows");
 
                     b.Navigation("session");
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Movie", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Movie", b =>
                 {
                     b.Navigation("session");
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Row", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Row", b =>
                 {
                     b.Navigation("seats");
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Seat", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Seat", b =>
                 {
                     b.Navigation("ticket");
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.Session", b =>
+            modelBuilder.Entity("cinema.Data.Entities.Session", b =>
                 {
                     b.Navigation("tickets");
                 });
 
-            modelBuilder.Entity("cinema.Data.Models.User", b =>
+            modelBuilder.Entity("cinema.Data.Entities.User", b =>
                 {
                     b.Navigation("tickets");
                 });
