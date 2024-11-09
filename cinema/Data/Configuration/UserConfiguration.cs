@@ -14,7 +14,8 @@ namespace cinema.Data.Configuration
                 .IsUnique();
 
             builder.Property(u => u.chat_id)
-                .HasMaxLength(25);
+                .HasMaxLength(25)
+                .IsRequired();
 
             builder.Property(u => u.phone_number)
                 .HasMaxLength(11)
