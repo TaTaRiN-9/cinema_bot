@@ -4,7 +4,7 @@ using cinema.Dtos;
 
 namespace cinema.Services
 {
-    public class UserServices
+    public class UserServices : IUserServices
     {
         private readonly IUserRepository _userRepository;
         public UserServices(IUserRepository userRepository)
@@ -19,12 +19,12 @@ namespace cinema.Services
             return await _userRepository.Create(user);
         }
 
-        public async Task<User> GetById(Guid id)
+        public async Task<User?> GetById(Guid id)
         {
             return await _userRepository.GetById(id);
         }
 
-        public async Task<User> GetByChatId(string chat_id)
+        public async Task<User?> GetByChatId(string chat_id)
         {
             return await _userRepository.GetByChatId(chat_id);
         }

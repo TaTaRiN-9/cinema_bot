@@ -1,7 +1,11 @@
 using cinema.Abstractions;
 using cinema.Data;
 using cinema.Data.Repository;
+using cinema.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using cinema.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +16,39 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors();
+
+var authOptions = builder.Configuration.GetSection("Jwt").Get<AuthOptions>();
+builder.Services.AddSingleton(authOptions);
+
+builder.Services.AddAuthorization();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    .AddJwtBearer(options =>
+    {
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
+
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = authOptions.ISSUER,
+            ValidateAudience = true,
+            ValidAudience = authOptions.AUDIENCE,
+            // будет ли валидироватьс€ врем€ существовани€
+            ValidateLifetime = true,
+            // валидаци€ ключа безопасности
+            ValidateIssuerSigningKey = true,
+            // Ѕерем ключ из json и передаем в параметры, то есть устанавливаем его
+            IssuerSigningKey = authOptions.GetSymmetricSecurityKey()
+        };
+    }
+);
+
 builder.Services.AddDbContext<CinemaDbContext>(
     options =>
     {
@@ -20,8 +57,17 @@ builder.Services.AddDbContext<CinemaDbContext>(
 
 // DI
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserServices, UserServices>();
+
+builder.Services.AddScoped<IJwtServices, JwtServices>();
 
 var app = builder.Build();
+
+app.UseCors(builder => builder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -32,6 +78,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthorization();
 app.UseAuthorization();
 
 app.MapControllers();
