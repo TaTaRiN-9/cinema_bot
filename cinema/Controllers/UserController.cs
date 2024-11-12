@@ -36,6 +36,26 @@ namespace cinema.Controllers
             return Created("Success", response);
         }
 
+        [HttpGet("{chat_id}")]
+        public async Task<IActionResult> GetUserByChatId(string chat_id)
+        {
+            var user = await _userServices.GetByChatId(chat_id);
+            
+            if (user != null) return Ok(user);
+            
+            return NotFound();
+        }
 
+        public async Task<IActionResult> UpdatePhoneNumberUser(UserRequest userRequest)
+        {
+            var user = await _userServices.GetByChatId(userRequest.chat_id);
+
+            if (user == null) return NotFound();
+
+            bool result = await _userServices.Update(user.id, userRequest.phone_number);
+
+            if (!result) return BadRequest("Что-то пошло не так :(");
+            return Ok(user);
+        }
     }
 }
