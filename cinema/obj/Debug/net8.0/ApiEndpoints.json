@@ -2,7 +2,7 @@
   {
     "ContainingType": "cinema.Controllers.UserController",
     "Method": "Add",
-    "RelativePath": "api/User",
+    "RelativePath": "api/user",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

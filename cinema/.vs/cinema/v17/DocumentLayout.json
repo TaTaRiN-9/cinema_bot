@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\services\\userservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:services\\userservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\data\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:data\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,7 +42,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "UserServices.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Services\\UserServices.cs",
+              "RelativeDocumentMoniker": "Services\\UserServices.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Services\\UserServices.cs",
+              "RelativeToolTip": "Services\\UserServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T18:04:52.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Repository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repository\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Repository\\UserRepository.cs",
+              "RelativeToolTip": "Data\\Repository\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T18:04:50.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\appsettings.Development.json",
               "RelativeDocumentMoniker": "appsettings.Development.json",
@@ -51,28 +81,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Controllers\\UserController.cs",
               "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAuwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-10T10:09:59.153Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T10:05:08.599Z",
               "EditorCaption": ""
             }
           ]

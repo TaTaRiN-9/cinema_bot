@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.RegularExpressions;
+using cinema.Migrations;
 
 namespace cinema.Data.Entities
 {
@@ -18,10 +20,21 @@ namespace cinema.Data.Entities
             this.phone_number = phone_number;
         }
 
-        public static User Create(string chat_id, string phone_number)
-        {
-            // тут нужно проверить номер телефона при помощи регулярки
-            return new User(chat_id, phone_number);
+        public static User? Create(string chat_id, string phone_number)
+        {   
+            var match = Regex.Match(
+                phone_number, 
+                @"^(?:\+7|8)\s*\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{2})[-.\s]?(\d{2})$"
+            );
+
+            if (match.Success)
+            {
+                string correct_number = $"8{match.Groups[1].Value}{match.Groups[2].Value}{match.Groups[3].Value}{match.Groups[4].Value}";
+                return new User(chat_id, correct_number);
+            } else
+            {
+                return null;
+            }
         }
     }
 }
