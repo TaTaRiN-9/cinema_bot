@@ -1,5 +1,5 @@
 ﻿using cinema.Abstractions;
-using cinema.Data.Models;
+using cinema.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace cinema.Data.Repository
@@ -20,19 +20,17 @@ namespace cinema.Data.Repository
             return user;
         }
 
-        public async Task<User> GetByChatId(string chat_id)
+        public async Task<User?> GetByChatId(string chat_id)
         {
-            var user = await _context.users.FirstOrDefaultAsync(u => u.chat_id == chat_id);
-            return user;
+            return await _context.users.FirstOrDefaultAsync(u => u.chat_id == chat_id);
         }
 
-        public async Task<User> GetById(int id)
+        public async Task<User?> GetById(Guid id)
         {
-            var user = await _context.users.FirstOrDefaultAsync(u => u.id == id);
-            return user;
+            return await _context.users.FirstOrDefaultAsync(u => u.id == id);
         }
 
-        public async Task<bool> UpdateData(int id, string phone_number)
+        public async Task<bool> Update(Guid id, string phone_number)
         {
             var users = await _context.users.Where(u => u.id == id).ToListAsync();
 

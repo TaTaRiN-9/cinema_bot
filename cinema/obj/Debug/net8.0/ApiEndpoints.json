@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "ContainingType": "cinema.Controllers.UserController",
+    "Method": "Add",
+    "RelativePath": "api/user",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userRequest",
+        "Type": "cinema.Dtos.UserRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.UserController",
+    "Method": "GetUserByChatId",
+    "RelativePath": "api/user/{chat_id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chat_id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
