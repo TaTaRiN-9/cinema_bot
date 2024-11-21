@@ -19,6 +19,16 @@ namespace cinema.Data.Repository
             return movie;
         }
 
+        public async Task<Movie?> GetById(Guid id)
+        {
+            return await _context.movies.FirstOrDefaultAsync(m => m.id == id);
+        }
+
+        public async Task<Movie?> GetByTitle(string title)
+        {
+            return await _context.movies.FirstOrDefaultAsync(m => m.title == title);
+        }
+
         public async Task<bool> Update(Movie movie)
         {
             Movie? movie_updated = await _context.movies.FirstOrDefaultAsync(m => m.id == movie.id);
@@ -40,8 +50,8 @@ namespace cinema.Data.Repository
             if (movie == null) return false;
 
             _context.movies.Remove(movie);
+            
             await _context.SaveChangesAsync();
-
             return true;
         }
     }

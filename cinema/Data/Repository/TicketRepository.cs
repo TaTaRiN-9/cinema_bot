@@ -1,9 +1,10 @@
-﻿using cinema.Data.Entities;
+﻿using cinema.Abstractions;
+using cinema.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace cinema.Data.Repository
 {
-    public class TicketRepository
+    public class TicketRepository : ITicketRepository
     {
         private readonly CinemaDbContext _context;
 
