@@ -1,9 +1,10 @@
-﻿using cinema.Data.Entities;
+﻿using cinema.Abstractions;
+using cinema.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace cinema.Data.Repository
 {
-    public class RowRepository
+    public class RowRepository : IRowRepository
     {
         private readonly CinemaDbContext _context;
         public RowRepository(CinemaDbContext context)
@@ -15,7 +16,7 @@ namespace cinema.Data.Repository
         {
             await _context.rows.AddAsync(row);
             await _context.SaveChangesAsync();
-            
+
             return row;
         }
 
@@ -27,6 +28,18 @@ namespace cinema.Data.Repository
         public async Task<Row?> GetByNumber(int number)
         {
             return await _context.rows.FirstOrDefaultAsync(h => h.number == number);
+        }
+
+        public async Task<bool> Delete(Guid id)
+        {
+            Row? row = await _context.rows.FirstOrDefaultAsync(r => r.id == id);
+
+            if (row == null) return false;
+
+            _context.rows.Remove(row);
+            await _context.SaveChangesAsync();
+
+            return true;
         }
     }
 }

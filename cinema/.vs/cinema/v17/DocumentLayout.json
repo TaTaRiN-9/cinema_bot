@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\data\\repository\\rowrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:data\\repository\\rowrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\data\\repository\\seatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:data\\repository\\seatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\data\\repository\\ticketrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:data\\repository\\ticketrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\data\\entities\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:data\\entities\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\data\\entities\\row.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:data\\entities\\row.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\data\\repository\\ticketrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:data\\repository\\ticketrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,25 +41,34 @@
               "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RowRepository.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Repository\\RowRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Repository\\RowRepository.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Repository\\RowRepository.cs",
-              "RelativeToolTip": "Data\\Repository\\RowRepository.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBUAAAAtAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Seat.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Entities\\Seat.cs",
+              "RelativeDocumentMoniker": "Data\\Entities\\Seat.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Entities\\Seat.cs",
+              "RelativeToolTip": "Data\\Entities\\Seat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T10:19:43.613Z",
+              "WhenOpened": "2024-11-21T14:20:18.061Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "SeatRepository.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Repository\\SeatRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repository\\SeatRepository.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Repository\\SeatRepository.cs",
+              "RelativeToolTip": "Data\\Repository\\SeatRepository.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwB0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T14:18:43.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Row.cs",
               "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Entities\\Row.cs",
               "RelativeDocumentMoniker": "Data\\Entities\\Row.cs",
@@ -68,20 +81,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T20:59:46.345Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "TicketRepository.cs",
               "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Repository\\TicketRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repository\\TicketRepository.cs",
@@ -89,8 +102,11 @@
               "RelativeToolTip": "Data\\Repository\\TicketRepository.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T17:19:41.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-15T17:19:41.727Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             }
           ]
         }
