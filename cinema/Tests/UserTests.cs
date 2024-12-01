@@ -4,6 +4,7 @@ using Xunit.Abstractions;
 
 namespace cinema.Tests
 {
+    // xUnit
     public class UserTests
     {
         private readonly ITestOutputHelper _output;

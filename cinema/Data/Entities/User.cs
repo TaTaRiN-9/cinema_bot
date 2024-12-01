@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.RegularExpressions;
-using cinema.Migrations;
 
 namespace cinema.Data.Entities
 {

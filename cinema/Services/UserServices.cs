@@ -12,9 +12,11 @@ namespace cinema.Services
             _userRepository = userRepository;
         }
 
-        public async Task<User> Add(UserRequest userRequest)
+        public async Task<User?> Add(CreateUserRequest userRequest)
         {
-            User user = User.Create(userRequest.chat_id, userRequest.phone_number);
+            User? user = User.Create(userRequest.chat_id, userRequest.phone_number);
+
+            if (user == null) return null;
 
             return await _userRepository.Create(user);
         }

@@ -24,11 +24,9 @@ namespace cinema.Migrations
 
             modelBuilder.Entity("cinema.Data.Entities.Hall", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<Guid>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("name")
                         .IsRequired()
@@ -44,23 +42,21 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = 1,
+                            id = new Guid("5199fcb4-f999-4916-a095-f623692c948c"),
                             name = "Малый зал"
                         },
                         new
                         {
-                            id = 2,
+                            id = new Guid("87f0763f-f20f-47f4-a0f0-fbe50f6f452d"),
                             name = "Большой зал"
                         });
                 });
 
             modelBuilder.Entity("cinema.Data.Entities.Movie", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<Guid>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("description")
                         .IsRequired()
@@ -88,14 +84,14 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = 1,
+                            id = new Guid("90725026-a9a9-4a70-9d77-88521956e2af"),
                             description = "Тут некоторое описание для фильма 1",
                             duration = 104,
                             title = "Фильм 1"
                         },
                         new
                         {
-                            id = 2,
+                            id = new Guid("11b607ee-7f27-4714-bf1e-39e3904e6cdb"),
                             description = "Тут некоторое описание для фильма 2",
                             duration = 98,
                             title = "Фильм 2"
@@ -104,14 +100,12 @@ namespace cinema.Migrations
 
             modelBuilder.Entity("cinema.Data.Entities.Row", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<Guid>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("uuid");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
-
-                    b.Property<int>("hall_id")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("hall_id")
+                        .HasColumnType("uuid");
 
                     b.Property<int>("number")
                         .HasColumnType("integer");
@@ -125,31 +119,29 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = 1,
-                            hall_id = 1,
+                            id = new Guid("d11132cc-89b1-4245-b9e7-fbb1ac1715a1"),
+                            hall_id = new Guid("5199fcb4-f999-4916-a095-f623692c948c"),
                             number = 1
                         },
                         new
                         {
-                            id = 2,
-                            hall_id = 1,
+                            id = new Guid("f98a4a5f-b415-4f49-bb91-1ede3c73274b"),
+                            hall_id = new Guid("5199fcb4-f999-4916-a095-f623692c948c"),
                             number = 2
                         });
                 });
 
             modelBuilder.Entity("cinema.Data.Entities.Seat", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<Guid>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+                        .HasColumnType("uuid");
 
                     b.Property<int>("number")
                         .HasColumnType("integer");
 
-                    b.Property<int>("row_id")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("row_id")
+                        .HasColumnType("uuid");
 
                     b.Property<bool>("status")
                         .HasColumnType("boolean");
@@ -163,71 +155,69 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = 1,
+                            id = new Guid("91e7247d-f736-4545-92a5-dd8a2c864ed0"),
                             number = 1,
-                            row_id = 1,
+                            row_id = new Guid("d11132cc-89b1-4245-b9e7-fbb1ac1715a1"),
                             status = true
                         },
                         new
                         {
-                            id = 2,
+                            id = new Guid("faef26b5-c373-4a53-96a9-5973ef34c1ff"),
                             number = 1,
-                            row_id = 1,
+                            row_id = new Guid("d11132cc-89b1-4245-b9e7-fbb1ac1715a1"),
                             status = true
                         },
                         new
                         {
-                            id = 3,
+                            id = new Guid("1c53a0bd-9bcf-4db3-bc5f-3f64373a9245"),
                             number = 2,
-                            row_id = 1,
+                            row_id = new Guid("d11132cc-89b1-4245-b9e7-fbb1ac1715a1"),
                             status = true
                         },
                         new
                         {
-                            id = 4,
+                            id = new Guid("e32eebcb-dde8-45f7-9445-9734943d28df"),
                             number = 3,
-                            row_id = 1,
+                            row_id = new Guid("d11132cc-89b1-4245-b9e7-fbb1ac1715a1"),
                             status = true
                         },
                         new
                         {
-                            id = 5,
+                            id = new Guid("7e62a9a4-8b95-4009-b94c-35ad3e0d0052"),
                             number = 1,
-                            row_id = 2,
+                            row_id = new Guid("f98a4a5f-b415-4f49-bb91-1ede3c73274b"),
                             status = true
                         },
                         new
                         {
-                            id = 6,
+                            id = new Guid("65d8d5d2-69f2-4853-a094-847cbd4a2ba3"),
                             number = 2,
-                            row_id = 2,
+                            row_id = new Guid("f98a4a5f-b415-4f49-bb91-1ede3c73274b"),
                             status = false
                         },
                         new
                         {
-                            id = 7,
+                            id = new Guid("b1de6b6c-5563-465b-9a13-037053e7ba6b"),
                             number = 3,
-                            row_id = 2,
+                            row_id = new Guid("f98a4a5f-b415-4f49-bb91-1ede3c73274b"),
                             status = false
                         });
                 });
 
             modelBuilder.Entity("cinema.Data.Entities.Session", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<Guid>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("end_time")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("hall_id")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("hall_id")
+                        .HasColumnType("uuid");
 
-                    b.Property<int>("movie_id")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("movie_id")
+                        .HasColumnType("uuid");
 
                     b.Property<decimal>("price")
                         .HasColumnType("numeric");
@@ -248,10 +238,10 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = 1,
+                            id = new Guid("20b5e137-053a-41d4-9a52-2cb2cc33da6d"),
                             end_time = new DateTime(2024, 10, 28, 20, 15, 0, 0, DateTimeKind.Utc),
-                            hall_id = 1,
-                            movie_id = 1,
+                            hall_id = new Guid("5199fcb4-f999-4916-a095-f623692c948c"),
+                            movie_id = new Guid("90725026-a9a9-4a70-9d77-88521956e2af"),
                             price = 250m,
                             start_time = new DateTime(2024, 10, 28, 18, 30, 0, 0, DateTimeKind.Utc)
                         });
@@ -259,17 +249,15 @@ namespace cinema.Migrations
 
             modelBuilder.Entity("cinema.Data.Entities.Ticket", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<Guid>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("uuid");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+                    b.Property<Guid>("seat_id")
+                        .HasColumnType("uuid");
 
-                    b.Property<int>("seat_id")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("session_id")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("session_id")
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("user_id")
                         .HasColumnType("uuid");
@@ -288,38 +276,38 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = 1,
-                            seat_id = 1,
-                            session_id = 1,
-                            user_id = new Guid("04e35a41-d0f4-423a-a264-48af8da26f30")
+                            id = new Guid("247bf6f9-5da8-4a0c-acad-51397c74607e"),
+                            seat_id = new Guid("91e7247d-f736-4545-92a5-dd8a2c864ed0"),
+                            session_id = new Guid("20b5e137-053a-41d4-9a52-2cb2cc33da6d"),
+                            user_id = new Guid("3e703db7-ae2d-4aad-babf-2e37339950d4")
                         },
                         new
                         {
-                            id = 2,
-                            seat_id = 2,
-                            session_id = 1,
-                            user_id = new Guid("04e35a41-d0f4-423a-a264-48af8da26f30")
+                            id = new Guid("8b037017-bf6b-44e4-8e3f-92f411071d51"),
+                            seat_id = new Guid("faef26b5-c373-4a53-96a9-5973ef34c1ff"),
+                            session_id = new Guid("20b5e137-053a-41d4-9a52-2cb2cc33da6d"),
+                            user_id = new Guid("3e703db7-ae2d-4aad-babf-2e37339950d4")
                         },
                         new
                         {
-                            id = 3,
-                            seat_id = 3,
-                            session_id = 1,
-                            user_id = new Guid("7ecc95e9-d57d-42f4-b346-703f97e6b1bd")
+                            id = new Guid("12fa832d-ecea-432b-9a3a-87fb5dd73b01"),
+                            seat_id = new Guid("1c53a0bd-9bcf-4db3-bc5f-3f64373a9245"),
+                            session_id = new Guid("20b5e137-053a-41d4-9a52-2cb2cc33da6d"),
+                            user_id = new Guid("8080451e-69a7-4929-a804-10b38ff050c7")
                         },
                         new
                         {
-                            id = 4,
-                            seat_id = 4,
-                            session_id = 1,
-                            user_id = new Guid("7ecc95e9-d57d-42f4-b346-703f97e6b1bd")
+                            id = new Guid("06c0e549-c9d2-4c60-84a0-01e1200beef1"),
+                            seat_id = new Guid("e32eebcb-dde8-45f7-9445-9734943d28df"),
+                            session_id = new Guid("20b5e137-053a-41d4-9a52-2cb2cc33da6d"),
+                            user_id = new Guid("8080451e-69a7-4929-a804-10b38ff050c7")
                         },
                         new
                         {
-                            id = 5,
-                            seat_id = 5,
-                            session_id = 1,
-                            user_id = new Guid("7ecc95e9-d57d-42f4-b346-703f97e6b1bd")
+                            id = new Guid("f6688833-dc70-422e-aedc-cd9d9aad5563"),
+                            seat_id = new Guid("7e62a9a4-8b95-4009-b94c-35ad3e0d0052"),
+                            session_id = new Guid("20b5e137-053a-41d4-9a52-2cb2cc33da6d"),
+                            user_id = new Guid("8080451e-69a7-4929-a804-10b38ff050c7")
                         });
                 });
 
@@ -349,13 +337,13 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = new Guid("04e35a41-d0f4-423a-a264-48af8da26f30"),
+                            id = new Guid("3e703db7-ae2d-4aad-babf-2e37339950d4"),
                             chat_id = "89123453423",
                             phone_number = "89962963698"
                         },
                         new
                         {
-                            id = new Guid("7ecc95e9-d57d-42f4-b346-703f97e6b1bd"),
+                            id = new Guid("8080451e-69a7-4929-a804-10b38ff050c7"),
                             chat_id = "891245653423",
                             phone_number = "89967351259"
                         });
