@@ -17,5 +17,25 @@ namespace cinema.Data.Entities
 
         public Guid session_id { get; set; }
         public Session? session { get; set; }
+
+        public Ticket()
+        { }
+
+        private Ticket(Guid seat_id, Guid user_id, Guid session_id, Seat seat, User user, Session session)
+        {
+            id = Guid.NewGuid();
+            this.seat_id = seat_id;
+            this.user_id = user_id;
+            this.session_id = session_id;
+            this.seat = seat;
+            this.user = user;
+            this.session = session;
+        }
+
+        public static Ticket Create(Guid seat_id, Guid user_id, Guid session_id, Seat seat, User user, Session session)
+        {
+            // Здесь можно добавить проверку какую-нибудь при создании объекта билет
+            return new Ticket(seat_id, user_id, session_id, seat, user, session);
+        }
     }
 }

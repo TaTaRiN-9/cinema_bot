@@ -1,9 +1,10 @@
-﻿using cinema.Data.Entities;
+﻿using cinema.Abstractions;
+using cinema.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace cinema.Data.Repository
 {
-    public class SessionRepository
+    public class SessionRepository : ISessionRepository
     {
         private readonly CinemaDbContext _context;
         public SessionRepository(CinemaDbContext context)
@@ -53,9 +54,18 @@ namespace cinema.Data.Repository
             if (session == null) return false;
 
             _context.sessions.Remove(session);
-            
+
             await _context.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<List<Session>> GetAvailableSessions(DateTime currentDateTime)
+        {
+            return await _context.sessions
+                .Include(s => s.movie)
+                .Include(s => s.hall)
+                .Where(s => s.start_time > currentDateTime)
+                .ToListAsync();
         }
     }
 }

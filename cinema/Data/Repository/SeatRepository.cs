@@ -1,9 +1,10 @@
-﻿using cinema.Data.Entities;
+﻿using cinema.Abstractions;
+using cinema.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace cinema.Data.Repository
 {
-    public class SeatRepository
+    public class SeatRepository : ISeatRepository
     {
         private readonly CinemaDbContext _context;
         public SeatRepository(CinemaDbContext context)
@@ -19,6 +20,11 @@ namespace cinema.Data.Repository
             return seat;
         }
 
+        public async Task<Seat?> GetById(Guid id)
+        {
+            return await _context.seats.FirstOrDefaultAsync(s => s.id == id);
+        }
+
         public async Task<List<Seat>> GetSeatsByRowId(Guid row_id)
         {
             return await _context.seats.Where(s => s.row_id == row_id).ToListAsync();
@@ -32,13 +38,19 @@ namespace cinema.Data.Repository
         public async Task<bool> Delete(Guid id)
         {
             Seat? seat = await _context.seats.FirstOrDefaultAsync(s => s.id == id);
-            
+
             if (seat == null) return false;
 
             _context.seats.Remove(seat);
             await _context.SaveChangesAsync();
-            
+
             return true;
+        }
+
+        public async Task Update(Seat seat)
+        {
+            _context.seats.Update(seat);
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -46,7 +46,8 @@ namespace cinema.Controllers
             return NotFound();
         }
 
-        public async Task<IActionResult> UpdatePhoneNumberUser(CreateUserRequest userRequest)
+        [HttpPatch]
+        public async Task<IActionResult> UpdatePhoneNumberUser([FromBody] CreateUserRequest userRequest)
         {
             var user = await _userServices.GetByChatId(userRequest.chat_id);
 

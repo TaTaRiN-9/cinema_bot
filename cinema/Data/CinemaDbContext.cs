@@ -53,9 +53,9 @@ namespace cinema.Data
             modelBuilder.Entity<Seat>()
                 .HasData(
                     new Seat { id = idSeat1, row_id = idRow1, number = 1, status = true },
-                    new Seat { id = idSeat2, row_id = idRow1, number = 1, status = true },
-                    new Seat { id = idSeat3, row_id = idRow1, number = 2, status = true },
-                    new Seat { id = idSeat4, row_id = idRow1, number = 3, status = true },
+                    new Seat { id = idSeat2, row_id = idRow1, number = 2, status = true },
+                    new Seat { id = idSeat3, row_id = idRow1, number = 3, status = true },
+                    new Seat { id = idSeat4, row_id = idRow1, number = 4, status = true },
                     new Seat { id = idSeat5, row_id = idRow2, number = 1, status = true },
                     new Seat { id = idSeat6, row_id = idRow2, number = 2, status = false },
                     new Seat { id = idSeat7, row_id = idRow2, number = 3, status = false }

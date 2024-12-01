@@ -1,5 +1,57 @@
 [
   {
+    "ContainingType": "cinema.Controllers.SessionController",
+    "Method": "GetAvailableMovies",
+    "RelativePath": "api/session/available",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.TicketController",
+    "Method": "AddTicket",
+    "RelativePath": "api/ticket/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addTicketRequest",
+        "Type": "cinema.Dtos.AddTicketRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.TicketController",
+    "Method": "GetTickets",
+    "RelativePath": "api/ticket/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.TicketController",
+    "Method": "GetUserTickets",
+    "RelativePath": "api/ticket/user-tickets/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "cinema.Controllers.UserController",
     "Method": "Add",
     "RelativePath": "api/user",
@@ -9,7 +61,23 @@
     "Parameters": [
       {
         "Name": "userRequest",
-        "Type": "cinema.Dtos.UserRequest",
+        "Type": "cinema.Dtos.CreateUserRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.UserController",
+    "Method": "UpdatePhoneNumberUser",
+    "RelativePath": "api/user",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userRequest",
+        "Type": "cinema.Dtos.CreateUserRequest",
         "IsRequired": true
       }
     ],
