@@ -2,11 +2,12 @@
 using cinema.Dtos;
 using cinema.Helpers;
 
-namespace cinema.Abstractions
+namespace cinema.Abstractions.Tickets
 {
     public interface ITicketRepository
     {
         Task<bool> Add(Ticket ticket);
+        Task<bool> Add(List<Ticket> tickets);
         Task<List<Ticket>> GetAll();
         Task<List<Ticket>> GetBySessionId(Guid id);
         Task<Ticket?> GetBySessionIdAndSeatId(Guid session_id, Guid seat_id);

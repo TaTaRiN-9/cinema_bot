@@ -12,5 +12,20 @@ namespace cinema.Data.Entities
         public int duration { get; set; }
         public string? photo_url { get; set; }
         public Session? session { get; set; }
+
+        public Movie() { }
+
+        private Movie(string title, string description, int duration, string photo_url)
+        {
+            this.title = title;
+            this.description = description;
+            this.duration = duration;
+            this.photo_url = photo_url;
+        }
+
+        public static Movie Create(string title, string description, int duration, string photo_url)
+        {
+            return new Movie(title, description, duration, photo_url);
+        }
     }
 }

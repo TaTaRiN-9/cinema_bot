@@ -1,6 +1,7 @@
 ﻿using cinema.Data.Entities;
+using cinema.Helpers;
 
-namespace cinema.Abstractions
+namespace cinema.Abstractions.Seats
 {
     public interface ISeatRepository
     {
@@ -10,5 +11,7 @@ namespace cinema.Abstractions
         Task<Seat?> GetById(Guid id);
         Task<List<Seat>> GetByRowIdAndFree(Guid row_id);
         Task<List<Seat>> GetSeatsByRowId(Guid row_id);
+        Task<List<Seat>> AreSeatsAvailable(List<Guid> seatIds);
+        Task UpdateSeatStatus(List<Guid> seat_ids);
     }
 }

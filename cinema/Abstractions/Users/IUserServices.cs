@@ -1,7 +1,7 @@
 ﻿using cinema.Data.Entities;
 using cinema.Dtos;
 
-namespace cinema.Abstractions
+namespace cinema.Abstractions.Users
 {
     public interface IUserServices
     {

@@ -1,4 +1,7 @@
-﻿using cinema.Abstractions;
+﻿using cinema.Abstractions.Seats;
+using cinema.Abstractions.Sessions;
+using cinema.Abstractions.Tickets;
+using cinema.Abstractions.Users;
 using cinema.Data.Entities;
 using cinema.Dtos;
 using cinema.Helpers;
@@ -26,30 +29,31 @@ namespace cinema.Services
             return Result<List<Ticket>>.Success(tickets);
         }
 
-        public async Task<Result<Guid>> AddTicket(AddTicketRequest addTicketRequest)
+        public async Task<Result<List<Guid>>> AddTicket(AddTicketRequest addTicketRequest)
         {
             User? user = await _userRepository.GetById(addTicketRequest.user_id);
-            if (user == null) return Result<Guid>.Failure("Пользователь не найден");
-
-            Seat? seat = await _seatRepository.GetById(addTicketRequest.seat_id);
-            if (seat == null) return Result<Guid>.Failure("Такого места не существует");
-
-            // Проверяем статус места
-            if (seat.status)
-                return Result<Guid>.Failure("Это место уже занято!");
+            if (user == null) return Result<List<Guid>>.Failure("Пользователь не найден");
 
             Session? session = await _sessionRepository.GetById(addTicketRequest.session_id);
-            if (session == null) return Result<Guid>.Failure("Такого сеанса не существует");
+            if (session == null) return Result<List<Guid>>.Failure("Такого сеанса не существует");
 
-            Ticket? ticket = Ticket.Create(addTicketRequest.seat_id, addTicketRequest.user_id,
-                addTicketRequest.session_id, seat, user, session);
+            var seats = await _seatRepository.AreSeatsAvailable(addTicketRequest.seat_ids);
 
-            seat.status = true;
-            await _seatRepository.Update(seat);
+            if (seats.Count != addTicketRequest.seat_ids.Count)
+                return Result<List<Guid>>.Failure("Один или несколько мест не найдено.");
 
-            await _ticketRepository.Add(ticket);
+            // Проверяем, что все места свободны
+            if (seats.Any(s => s.status))
+                return Result<List<Guid>>.Failure("Одно или несколько мест заняты");
 
-            return Result<Guid>.Success(ticket.id);
+            // Создаем билеты
+            var tickets = seats.Select(seat => Ticket.Create(seat.id, 
+                addTicketRequest.user_id, addTicketRequest.session_id, seat, user, session)).ToList();
+
+            await _ticketRepository.Add(tickets);
+            await _seatRepository.UpdateSeatStatus(addTicketRequest.seat_ids);
+
+            return Result<List<Guid>>.Success(tickets.Select(t => t.id).ToList());
         }
 
         public async Task<Result<List<UserTicketDto>>> GetTicketsByUserId(Guid userId)

@@ -1,4 +1,5 @@
-﻿using cinema.Abstractions;
+﻿using System;
+using cinema.Abstractions.Sessions;
 using cinema.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,14 @@ namespace cinema.Data.Repository
             _context = context;
         }
 
+        public async Task<List<Session>> GetAll()
+        {
+            return await _context.Set<Session>()
+                .Include(s => s.hall)
+                .Include(s => s.movie)
+                .ToListAsync();
+        }
+
         public async Task<Session> Add(Session session)
         {
             await _context.sessions.AddAsync(session);
@@ -23,6 +32,15 @@ namespace cinema.Data.Repository
         public async Task<Session?> GetById(Guid id)
         {
             return await _context.sessions.FirstOrDefaultAsync(s => s.id == id);
+        }
+
+        public async Task<Session?> CheckingSessionOverlap(Guid id, DateTime start_time, DateTime end_time)
+        {
+            return await _context.sessions.FirstOrDefaultAsync(s =>
+                s.hall_id == id &&
+                ((start_time >= s.start_time && start_time < s.end_time) || // Начало нового сеанса внутри существующего
+                 (end_time > s.start_time && end_time <= s.end_time) ||     // Конец нового сеанса внутри существующего
+                 (start_time <= s.start_time && end_time >= s.end_time)));
         }
 
         // Пользователю будем только предлагать выбрать день.
@@ -66,6 +84,16 @@ namespace cinema.Data.Repository
                 .Include(s => s.hall)
                 .Where(s => s.start_time > currentDateTime)
                 .ToListAsync();
+        }
+
+        public async Task<Session?> GetSessionDetails(Guid id)
+        {
+            return await _context.sessions
+                .Include(s => s.movie)
+                .Include(s => s.hall)
+                .ThenInclude(h => h.rows)
+                .ThenInclude(r => r.seats)
+                .FirstOrDefaultAsync(s => s.id == id);
         }
     }
 }

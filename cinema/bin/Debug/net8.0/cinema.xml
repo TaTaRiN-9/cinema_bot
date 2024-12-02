@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>cinema</name>
+    </assembly>
+    <members>
+        <member name="M:cinema.Controllers.HallController.GetAll">
+            <summary>
+            Получение всех залов
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cinema.Controllers.HallController.AddHall(cinema.Dtos.AddHallRequest)">
+            <summary>
+            Создание зала
+            </summary>
+            <param name="addHallRequest"></param>
+            <returns>Созданный зал с рядами и местами</returns>
+            <remarks>
+            Запрос создания зала:
+            
+                POST /hall
+                  {
+                    "name": "Название зала",
+                    "rows": [
+                      {
+                        "number": 1,
+                        "seats": [
+                          {
+                            "number": 1,
+                            "status": false
+                          },
+                          {
+                            "number": 2,
+                            "status": false
+                          }
+                        ]
+                      }
+                    ]
+                  }
+            </remarks>
+            <response code="200">Возвращает созданный зал</response>
+            <response code="400">Если что-то пошло не так, например, такой зал уже существует</response>
+        </member>
+        <member name="M:cinema.Controllers.HallController.UpdateHall(System.Guid,cinema.Dtos.UpdateHallRequest)">
+            <summary>
+            Обновление зала
+            </summary>
+            <param name="id"></param>
+            <param name="updateHallRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cinema.Controllers.HallController.DeleteHall(System.Guid)">
+            <summary>
+            Удаление зала
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cinema.Dtos.AddSessionRequest">
+            <summary>
+            Модель запроса для создания сеанса
+            </summary>
+        </member>
+        <member name="T:cinema.Migrations.init">
+            <inheritdoc />
+        </member>
+        <member name="M:cinema.Migrations.init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:cinema.Migrations.init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:cinema.Migrations.init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

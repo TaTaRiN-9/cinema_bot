@@ -1,4 +1,4 @@
-﻿namespace cinema.Abstractions
+﻿namespace cinema.Abstractions.Helpers
 {
     public interface IJwtServices
     {

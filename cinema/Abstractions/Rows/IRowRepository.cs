@@ -1,6 +1,6 @@
 ﻿using cinema.Data.Entities;
 
-namespace cinema.Abstractions
+namespace cinema.Abstractions.Rows
 {
     public interface IRowRepository
     {

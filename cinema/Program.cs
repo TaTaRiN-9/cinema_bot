@@ -1,4 +1,3 @@
-using cinema.Abstractions;
 using cinema.Data;
 using cinema.Data.Repository;
 using cinema.Services;
@@ -7,6 +6,16 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using cinema.Helpers;
 using System.Text.Json.Serialization;
+using cinema.Abstractions.Tickets;
+using cinema.Abstractions.Sessions;
+using cinema.Abstractions.Users;
+using cinema.Abstractions.Seats;
+using cinema.Abstractions.Helpers;
+using cinema.Abstractions.Movies;
+using cinema.Abstractions.Halls;
+using cinema.Abstractions.Rows;
+using System.Reflection;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +27,17 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo { 
+        Title = "Cinema API", 
+        Version = "v1",
+        Description = "An ASP.NET Core Web API для управления системой покупки билетов в кинотеатр",
+    });
+
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+});
 
 builder.Services.AddCors();
 
@@ -68,6 +87,14 @@ builder.Services.AddScoped<ITicketServices, TicketServices>();
 
 builder.Services.AddScoped<ISessionRepository, SessionRepository>();
 builder.Services.AddScoped<ISessionServices, SessionServices>();
+
+builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+builder.Services.AddScoped<IMovieServices, MovieServices>();
+
+builder.Services.AddScoped<IHallServices, HallServices>();
+builder.Services.AddScoped<IHallRepository, HallRepository>();
+
+builder.Services.AddScoped<IRowRepository, RowRepository>();
 
 builder.Services.AddScoped<ISeatRepository, SeatRepository>();
 

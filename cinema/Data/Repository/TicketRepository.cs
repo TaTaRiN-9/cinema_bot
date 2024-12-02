@@ -1,4 +1,4 @@
-﻿using cinema.Abstractions;
+﻿using cinema.Abstractions.Tickets;
 using cinema.Data.Entities;
 using cinema.Helpers;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +23,14 @@ namespace cinema.Data.Repository
         public async Task<bool> Add(Ticket ticket)
         {
             await _context.tickets.AddAsync(ticket);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> Add(List<Ticket> tickets)
+        {
+            await _context.tickets.AddRangeAsync(tickets);
             await _context.SaveChangesAsync();
 
             return true;
