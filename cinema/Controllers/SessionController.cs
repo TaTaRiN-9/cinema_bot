@@ -63,5 +63,28 @@ namespace cinema.Controllers
 
             return BadRequest(new { error = result.Error });
         }
+
+        [HttpPut("{session_id}")]
+        public async Task<IActionResult> UpdateSession(Guid session_id, [FromBody] UpdateSessionRequest request)
+        {
+            var result = await _sessionServices.UpdateSession(session_id, request.start_time, request.end_time,
+                request.price, request.hall_name, request.movie_title);
+
+            if (!result.IsSuccess)
+                return BadRequest(new { Message = result.Error });
+
+            return Ok(result.Value);
+        }
+
+        [HttpDelete("{session_id}")]
+        public async Task<IActionResult> DeleteSession(Guid session_id)
+        {
+            var result = await _sessionServices.DeleteSession(session_id);
+
+            if (!result.IsSuccess)
+                return NotFound(new { Message = "Не удалось удалить сеанс" });
+
+            return Ok(result.Value);
+        }
     }
 }

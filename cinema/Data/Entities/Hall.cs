@@ -7,7 +7,7 @@ namespace cinema.Data.Entities
     {
         public Guid id { get; set; }
         public string name { get; set; } = null!;
-        public Session? session { get; set; }
+        public ICollection<Session> sessions { get; set; } = new List<Session>();
         public List<Row> rows { get; set; }
     }
 }

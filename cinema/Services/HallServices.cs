@@ -1,4 +1,5 @@
 ﻿using cinema.Abstractions.Halls;
+using cinema.Abstractions.Seats;
 using cinema.Data.Entities;
 using cinema.Dtos;
 using cinema.Helpers;
@@ -8,9 +9,11 @@ namespace cinema.Services
     public class HallServices : IHallServices
     {
         private readonly IHallRepository _hallRepository;
-        public HallServices(IHallRepository hallRepository)
+        private readonly ISeatRepository _seatRepository;
+        public HallServices(IHallRepository hallRepository, ISeatRepository seatRepository)
         {
             _hallRepository = hallRepository;
+            _seatRepository = seatRepository;
         }
 
         public async Task<Result<List<HallWithDetailsResponse>>> GetAllWithDetails()
@@ -133,6 +136,8 @@ namespace cinema.Services
                                 row_id = existingRow.id
                             });
                         }
+
+                        await _hallRepository.SaveChangesAsync();
                     }
                 }
                 else
@@ -152,6 +157,8 @@ namespace cinema.Services
                     };
                     hall.rows.Add(newRow);
                 }
+
+                await _hallRepository.SaveChangesAsync();
             }
 
             // Удаляем отсутствующие ряды и места

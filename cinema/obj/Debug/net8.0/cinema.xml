@@ -74,5 +74,17 @@
         <member name="M:cinema.Migrations.init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:cinema.Migrations.addone_to_many">
+            <inheritdoc />
+        </member>
+        <member name="M:cinema.Migrations.addone_to_many.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:cinema.Migrations.addone_to_many.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:cinema.Migrations.addone_to_many.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

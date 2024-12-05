@@ -154,6 +154,43 @@
   },
   {
     "ContainingType": "cinema.Controllers.SessionController",
+    "Method": "UpdateSession",
+    "RelativePath": "api/session/{session_id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "session_id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "cinema.Dtos.UpdateSessionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.SessionController",
+    "Method": "DeleteSession",
+    "RelativePath": "api/session/{session_id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "session_id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.SessionController",
     "Method": "GetAllSessions",
     "RelativePath": "api/session/all",
     "HttpMethod": "GET",

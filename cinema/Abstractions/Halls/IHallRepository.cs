@@ -11,5 +11,6 @@ namespace cinema.Abstractions.Halls
         Task<bool> Update(Hall hall);
         Task<Hall?> GetHallWithDetails(Guid id);
         Task<List<Hall>> GetAllWithDetails();
+        Task SaveChangesAsync();
     }
 }

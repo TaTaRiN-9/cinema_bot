@@ -49,17 +49,15 @@ namespace cinema.Data.Repository
             return await _context.sessions.Where(s => s.start_time >= start_time && s.start_time <= end_time).ToListAsync();
         }
 
-        public async Task<bool> Update(Session session)
+        public async Task<bool> Update(Session session, DateTime start_time, DateTime end_time, decimal price, Hall hall, Movie movie)
         {
-            Session? sessionUpdate = await _context.sessions.FirstOrDefaultAsync(s => s.id == session.id);
-
-            if (sessionUpdate == null) return false;
-
-            sessionUpdate.price = session.price;
-            sessionUpdate.start_time = session.start_time;
-            sessionUpdate.end_time = session.end_time;
-            sessionUpdate.movie_id = session.movie_id;
-            sessionUpdate.hall_id = session.hall_id;
+            session.price = price;
+            session.start_time = start_time;
+            session.end_time = end_time;
+            session.movie_id = movie.id;
+            session.movie = movie;
+            session.hall_id = hall.id;
+            session.hall = hall;
 
             await _context.SaveChangesAsync();
             return true;

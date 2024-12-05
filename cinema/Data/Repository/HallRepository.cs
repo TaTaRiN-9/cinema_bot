@@ -64,5 +64,10 @@ namespace cinema.Data.Repository
                 .ThenInclude(r => r.seats)
                 .FirstOrDefaultAsync(h => h.id == id);
         }
+
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }

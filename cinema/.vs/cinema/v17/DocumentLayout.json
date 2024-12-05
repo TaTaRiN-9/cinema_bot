@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\services\\hallservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:services\\hallservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\data\\repository\\hallrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:data\\repository\\hallrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\data\\repository\\sessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:data\\repository\\sessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\data\\repository\\seatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:data\\repository\\seatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|c:\\users\\user\\source\\repos\\cinema_bot\\cinema\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B37F03D4-132A-4858-85F2-1C74C9B02E28}|cinema.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,13 +46,65 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SeatRepository.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Repository\\SeatRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repository\\SeatRepository.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Repository\\SeatRepository.cs",
+              "RelativeToolTip": "Data\\Repository\\SeatRepository.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-03T12:34:48.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HallRepository.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Repository\\HallRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repository\\HallRepository.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Repository\\HallRepository.cs",
+              "RelativeToolTip": "Data\\Repository\\HallRepository.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAUwEMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-03T12:31:10.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "HallServices.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Services\\HallServices.cs",
+              "RelativeDocumentMoniker": "Services\\HallServices.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Services\\HallServices.cs",
+              "RelativeToolTip": "Services\\HallServices.cs",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAAAJwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-03T12:31:21.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SessionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Repository\\SessionRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repository\\SessionRepository.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Data\\Repository\\SessionRepository.cs",
+              "RelativeToolTip": "Data\\Repository\\SessionRepository.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-03T12:31:06.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\user\\source\\repos\\cinema_bot\\cinema\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAABAAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAABAAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-02T17:31:19.716Z",
               "EditorCaption": ""
