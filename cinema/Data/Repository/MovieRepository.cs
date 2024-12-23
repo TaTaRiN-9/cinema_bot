@@ -1,9 +1,10 @@
-﻿using cinema.Data.Entities;
+﻿using cinema.Abstractions.Movies;
+using cinema.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace cinema.Data.Repository
 {
-    public class MovieRepository
+    public class MovieRepository : IMovieRepository
     {
         private readonly CinemaDbContext _context;
         public MovieRepository(CinemaDbContext context)
@@ -19,6 +20,11 @@ namespace cinema.Data.Repository
             return movie;
         }
 
+        public async Task<List<Movie>> GetAllMovies()
+        {
+            return await _context.movies.ToListAsync();
+        }
+
         public async Task<Movie?> GetById(Guid id)
         {
             return await _context.movies.FirstOrDefaultAsync(m => m.id == id);
@@ -29,30 +35,22 @@ namespace cinema.Data.Repository
             return await _context.movies.FirstOrDefaultAsync(m => m.title == title);
         }
 
-        public async Task<bool> Update(Movie movie)
+        public async Task<bool> Update(string title, string description,
+                int duration, string photo_url, Movie movie_updated)
         {
-            Movie? movie_updated = await _context.movies.FirstOrDefaultAsync(m => m.id == movie.id);
-
-            if (movie_updated == null) return false;
-
-            movie_updated.title = movie.title;
-            movie_updated.description = movie.description;
-            movie_updated.duration = movie.duration;
-            movie_updated.photo_url = movie.photo_url;
+            movie_updated.title = title;
+            movie_updated.description = description;
+            movie_updated.duration = duration;
+            movie_updated.photo_url = photo_url;
 
             await _context.SaveChangesAsync();
             return true;
         }
 
-        public async Task<bool> Delete(Guid id)
+        public async Task Delete(Movie movie)
         {
-            Movie? movie = await _context.movies.FirstOrDefaultAsync(m => m.id == id);
-            if (movie == null) return false;
-
             _context.movies.Remove(movie);
-            
             await _context.SaveChangesAsync();
-            return true;
         }
     }
 }

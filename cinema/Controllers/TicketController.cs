@@ -1,9 +1,7 @@
-﻿using cinema.Abstractions;
+﻿using cinema.Abstractions.Tickets;
 using cinema.Dtos;
 using cinema.Helpers;
-using cinema.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 
 namespace cinema.Controllers
 {
@@ -20,12 +18,12 @@ namespace cinema.Controllers
         [HttpPost("add")]
         public async Task<IActionResult> AddTicket([FromBody] AddTicketRequest addTicketRequest)
         {
-            Result<Guid> result = await _ticketServices.AddTicket(addTicketRequest);
+            Result<List<Guid>> result = await _ticketServices.AddTicket(addTicketRequest);
 
             if (!result.IsSuccess)
                 return BadRequest(new { Message = result.Error });
 
-            return Ok(new { Message = "Билет успешно добавлен", ticket_id = result.Value });
+            return Ok(new { Message = "Билет(ы) успешно добавлен(ы)", ticket_ids = result.Value });
         }
 
         [HttpGet("get-all")]
@@ -36,7 +34,7 @@ namespace cinema.Controllers
             if (!result.IsSuccess)
                 return BadRequest(new {Message = result.Error});
 
-            return Ok(new { Message = "Билет успешно получены", tickets = result.Value });
+            return Ok(new { Message = "Билеты успешно получены", tickets = result.Value });
         }
 
         [HttpGet("user-tickets/{userId}")]

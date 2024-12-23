@@ -11,6 +11,21 @@ namespace cinema.Data.Entities
         // на первое время будем использовать int в минутах. Потом можно будет применить тип duration в postgres
         public int duration { get; set; }
         public string? photo_url { get; set; }
-        public Session? session { get; set; }
+        public ICollection<Session> sessions { get; set; } = new List<Session>();
+
+        public Movie() { }
+
+        private Movie(string title, string description, int duration, string photo_url)
+        {
+            this.title = title;
+            this.description = description;
+            this.duration = duration;
+            this.photo_url = photo_url;
+        }
+
+        public static Movie Create(string title, string description, int duration, string photo_url)
+        {
+            return new Movie(title, description, duration, photo_url);
+        }
     }
 }

@@ -1,0 +1,13 @@
+﻿using cinema.Data.Entities;
+using cinema.Dtos;
+
+namespace cinema.Abstractions.Users
+{
+    public interface IUserServices
+    {
+        Task<User?> Add(CreateUserRequest userRequest);
+        Task<User?> GetByChatId(string chat_id);
+        Task<User?> GetById(Guid id);
+        Task<bool> Update(Guid id, string phone_number);
+    }
+}

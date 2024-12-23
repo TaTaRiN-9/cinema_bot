@@ -1,5 +1,205 @@
 [
   {
+    "ContainingType": "cinema.Controllers.HallController",
+    "Method": "AddHall",
+    "RelativePath": "api/hall",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addHallRequest",
+        "Type": "cinema.Dtos.AddHallRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.HallController",
+    "Method": "UpdateHall",
+    "RelativePath": "api/hall/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateHallRequest",
+        "Type": "cinema.Dtos.UpdateHallRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.HallController",
+    "Method": "DeleteHall",
+    "RelativePath": "api/hall/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.HallController",
+    "Method": "GetAll",
+    "RelativePath": "api/hall/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.MovieController",
+    "Method": "AddMovie",
+    "RelativePath": "api/movie",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addMovieRequest",
+        "Type": "cinema.Dtos.AddMovieRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.MovieController",
+    "Method": "UpdateMovie",
+    "RelativePath": "api/movie",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateMovieRequest",
+        "Type": "cinema.Dtos.UpdateMovieRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.MovieController",
+    "Method": "DeleteMovie",
+    "RelativePath": "api/movie/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.MovieController",
+    "Method": "GetAll",
+    "RelativePath": "api/movie/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.SessionController",
+    "Method": "AddSession",
+    "RelativePath": "api/session",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "cinema.Dtos.AddSessionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.SessionController",
+    "Method": "GetSessionDetails",
+    "RelativePath": "api/session/{session_id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "session_id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.SessionController",
+    "Method": "UpdateSession",
+    "RelativePath": "api/session/{session_id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "session_id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "cinema.Dtos.UpdateSessionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.SessionController",
+    "Method": "DeleteSession",
+    "RelativePath": "api/session/{session_id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "session_id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.SessionController",
+    "Method": "GetAllSessions",
+    "RelativePath": "api/session/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "cinema.Controllers.SessionController",
     "Method": "GetAvailableMovies",
     "RelativePath": "api/session/available",

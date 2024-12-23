@@ -1,14 +1,23 @@
-﻿using cinema.Data.Entities;
+﻿using cinema.Abstractions.Halls;
+using cinema.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace cinema.Data.Repository
 {
-    public class HallRepository
+    public class HallRepository : IHallRepository
     {
         private readonly CinemaDbContext _context;
         public HallRepository(CinemaDbContext context)
         {
             _context = context;
+        }
+
+        public async Task<List<Hall>> GetAllWithDetails()
+        {
+            return await _context.halls
+                .Include(h => h.rows)
+                .ThenInclude(r => r.seats)
+                .ToListAsync();
         }
 
         public async Task<Hall> Add(Hall hall)
@@ -31,13 +40,9 @@ namespace cinema.Data.Repository
 
         public async Task<bool> Update(Hall hall)
         {
-            Hall? hallUpdate = await _context.halls.FirstOrDefaultAsync(h => h.id == hall.id);
-
-            if (hallUpdate == null) return false;
-
-            hallUpdate.name = hall.name;
-            
+            _context.halls.Update(hall);
             await _context.SaveChangesAsync();
+
             return true;
         }
 
@@ -47,9 +52,22 @@ namespace cinema.Data.Repository
             if (hall == null) return false;
 
             _context.halls.Remove(hall);
-            
+
             await _context.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<Hall?> GetHallWithDetails(Guid id)
+        {
+            return await _context.halls
+                .Include(h => h.rows)
+                .ThenInclude(r => r.seats)
+                .FirstOrDefaultAsync(h => h.id == id);
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using cinema.Abstractions;
+﻿using cinema.Abstractions.Helpers;
+using cinema.Abstractions.Users;
 using cinema.Dtos;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,6 +1,6 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using cinema.Abstractions;
+using cinema.Abstractions.Helpers;
 using cinema.Helpers;
 using Microsoft.IdentityModel.Tokens;
 

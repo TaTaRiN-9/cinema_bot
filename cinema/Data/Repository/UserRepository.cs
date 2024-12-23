@@ -1,4 +1,4 @@
-﻿using cinema.Abstractions;
+﻿using cinema.Abstractions.Users;
 using cinema.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,5 +1,6 @@
-﻿using cinema.Abstractions;
+﻿using cinema.Abstractions.Seats;
 using cinema.Data.Entities;
+using cinema.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace cinema.Data.Repository
@@ -18,6 +19,27 @@ namespace cinema.Data.Repository
             await _context.SaveChangesAsync();
 
             return seat;
+        }
+
+        public async Task UpdateSeatStatus(List<Guid> seat_ids)
+        {
+            var seats = await _context.seats
+                .Where(s => seat_ids.Contains(s.id))
+                .ToListAsync();
+
+            foreach (var seat in seats)
+            {
+                seat.status = true; // Место занято
+            }
+
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<Seat>> AreSeatsAvailable(List<Guid> seatIds)
+        {
+            return await _context.seats
+                .Where(s => seatIds.Contains(s.id))
+                .ToListAsync();
         }
 
         public async Task<Seat?> GetById(Guid id)
