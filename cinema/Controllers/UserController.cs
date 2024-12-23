@@ -18,11 +18,15 @@ namespace cinema.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] CreateUserRequest userRequest)
+        public async Task<IActionResult> Add([FromBody] AddUserRequest userRequest)
         {
-            var checkUser = await _userServices.GetByChatId(userRequest.chat_id);
+            var checkUser = await _userServices.GetByPhone(userRequest.phone_number);
 
-            if (checkUser != null) return BadRequest("Такой пользователь уже существует!");
+            if (checkUser != null) return Ok("Такой номер уже зарегистрирован");
+
+            checkUser = await _userServices.GetByChatId(userRequest.chat_id);
+
+            if (checkUser != null) return Ok("Такой пользователь уже существует!");
 
             var user = await _userServices.Add(userRequest);
 
@@ -38,7 +42,7 @@ namespace cinema.Controllers
         }
 
         [HttpGet("{chat_id}")]
-        public async Task<IActionResult> GetUserByChatId(string chat_id)
+        public async Task<IActionResult> GetUserByChatId(long chat_id)
         {
             var user = await _userServices.GetByChatId(chat_id);
             
@@ -47,10 +51,10 @@ namespace cinema.Controllers
             return NotFound();
         }
 
-        [HttpPatch]
-        public async Task<IActionResult> UpdatePhoneNumberUser([FromBody] CreateUserRequest userRequest)
+        [HttpPatch("{chat_id}")]
+        public async Task<IActionResult> UpdatePhoneNumberUser(long chat_id, [FromBody] UpdateUserRequest userRequest)
         {
-            var user = await _userServices.GetByChatId(userRequest.chat_id);
+            var user = await _userServices.GetByChatId(chat_id);
 
             if (user == null) return NotFound();
 

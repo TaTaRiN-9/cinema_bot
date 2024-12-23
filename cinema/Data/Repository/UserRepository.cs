@@ -20,7 +20,12 @@ namespace cinema.Data.Repository
             return user;
         }
 
-        public async Task<User?> GetByChatId(string chat_id)
+        public async Task<User?> GetByPhone(string phone_number)
+        {
+            return await _context.users.FirstOrDefaultAsync(u => u.phone_number == phone_number);
+        }
+
+        public async Task<User?> GetByChatId(long chat_id)
         {
             return await _context.users.FirstOrDefaultAsync(u => u.chat_id == chat_id);
         }

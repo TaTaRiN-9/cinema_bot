@@ -12,8 +12,8 @@ using cinema.Data;
 namespace cinema.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20241203120839_add-one_to_many")]
-    partial class addone_to_many
+    [Migration("20241211124607_new-session-for-example")]
+    partial class newsessionforexample
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,12 +45,12 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = new Guid("ab2bbfde-b06a-4af0-9c31-d08c7d09da71"),
+                            id = new Guid("0373ba50-086f-49b4-88d0-7f24d1857626"),
                             name = "Малый зал"
                         },
                         new
                         {
-                            id = new Guid("ae28f2d7-18c8-430c-bf29-b84192e3e5c3"),
+                            id = new Guid("8facc6de-4ee7-4008-b772-0c854216ce7b"),
                             name = "Большой зал"
                         });
                 });
@@ -87,14 +87,14 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = new Guid("f164e8e7-ae7f-4d13-8435-07aa24c6ff2e"),
+                            id = new Guid("72e1e00e-8ef0-4b9a-a1ec-18d15b361b6d"),
                             description = "Тут некоторое описание для фильма 1",
                             duration = 104,
                             title = "Фильм 1"
                         },
                         new
                         {
-                            id = new Guid("e89892ee-7eda-410f-be2e-e57b4ef39275"),
+                            id = new Guid("237b02ea-fc54-452b-8892-a27de9be1486"),
                             description = "Тут некоторое описание для фильма 2",
                             duration = 98,
                             title = "Фильм 2"
@@ -122,14 +122,14 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = new Guid("111a4d68-ca80-4778-bfa0-57f9c73f35d7"),
-                            hall_id = new Guid("ab2bbfde-b06a-4af0-9c31-d08c7d09da71"),
+                            id = new Guid("372c580d-8c50-4fdd-b30d-15cc0f979aec"),
+                            hall_id = new Guid("0373ba50-086f-49b4-88d0-7f24d1857626"),
                             number = 1
                         },
                         new
                         {
-                            id = new Guid("95443536-9544-4f24-8d99-85db845bb789"),
-                            hall_id = new Guid("ab2bbfde-b06a-4af0-9c31-d08c7d09da71"),
+                            id = new Guid("c8c94a35-407b-4f9d-a9e3-bd0741e30f45"),
+                            hall_id = new Guid("0373ba50-086f-49b4-88d0-7f24d1857626"),
                             number = 2
                         });
                 });
@@ -158,51 +158,51 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = new Guid("e117f571-bc42-43b9-8238-b713548d9f5f"),
+                            id = new Guid("80f41097-094f-4042-8468-a727371fb0c8"),
                             number = 1,
-                            row_id = new Guid("111a4d68-ca80-4778-bfa0-57f9c73f35d7"),
+                            row_id = new Guid("372c580d-8c50-4fdd-b30d-15cc0f979aec"),
                             status = true
                         },
                         new
                         {
-                            id = new Guid("250f240c-0d2d-416f-8b81-cd6dc00e2cd0"),
+                            id = new Guid("4007391c-fdee-46c1-a56b-cbb350bf2bba"),
                             number = 2,
-                            row_id = new Guid("111a4d68-ca80-4778-bfa0-57f9c73f35d7"),
+                            row_id = new Guid("372c580d-8c50-4fdd-b30d-15cc0f979aec"),
                             status = true
                         },
                         new
                         {
-                            id = new Guid("dcd6db05-5890-431e-b330-c4db4e3e6026"),
+                            id = new Guid("2b6ba0a0-a8ea-455b-b566-a031f6767ffa"),
                             number = 3,
-                            row_id = new Guid("111a4d68-ca80-4778-bfa0-57f9c73f35d7"),
+                            row_id = new Guid("372c580d-8c50-4fdd-b30d-15cc0f979aec"),
                             status = true
                         },
                         new
                         {
-                            id = new Guid("74999076-d875-4513-a1d3-ab322db09ccf"),
+                            id = new Guid("f646710a-1ecf-4d9a-81e1-02afa0d65b92"),
                             number = 4,
-                            row_id = new Guid("111a4d68-ca80-4778-bfa0-57f9c73f35d7"),
+                            row_id = new Guid("372c580d-8c50-4fdd-b30d-15cc0f979aec"),
                             status = true
                         },
                         new
                         {
-                            id = new Guid("7fc7e373-febb-408f-b226-e21dc1430f2b"),
+                            id = new Guid("b7d06651-f93a-4520-ac81-89bd1e7972b7"),
                             number = 1,
-                            row_id = new Guid("95443536-9544-4f24-8d99-85db845bb789"),
+                            row_id = new Guid("c8c94a35-407b-4f9d-a9e3-bd0741e30f45"),
                             status = true
                         },
                         new
                         {
-                            id = new Guid("376dc811-beeb-4332-bc10-5e8957e39146"),
+                            id = new Guid("7a0dd1ac-e715-42e8-aa16-6ecac45dd5a1"),
                             number = 2,
-                            row_id = new Guid("95443536-9544-4f24-8d99-85db845bb789"),
+                            row_id = new Guid("c8c94a35-407b-4f9d-a9e3-bd0741e30f45"),
                             status = false
                         },
                         new
                         {
-                            id = new Guid("008caf23-42de-417f-8bfe-8ad2d9d131c4"),
+                            id = new Guid("86995802-7df4-4f75-927c-c8b81cb98dfd"),
                             number = 3,
-                            row_id = new Guid("95443536-9544-4f24-8d99-85db845bb789"),
+                            row_id = new Guid("c8c94a35-407b-4f9d-a9e3-bd0741e30f45"),
                             status = false
                         });
                 });
@@ -239,12 +239,120 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = new Guid("4cff6804-98e8-4cdf-bd76-bcecf1cb2c81"),
-                            end_time = new DateTime(2024, 10, 28, 20, 15, 0, 0, DateTimeKind.Utc),
-                            hall_id = new Guid("ab2bbfde-b06a-4af0-9c31-d08c7d09da71"),
-                            movie_id = new Guid("f164e8e7-ae7f-4d13-8435-07aa24c6ff2e"),
+                            id = new Guid("1cfc4e70-13fc-42b0-a72a-e73cd3f65110"),
+                            end_time = new DateTime(2025, 1, 10, 12, 20, 0, 0, DateTimeKind.Utc),
+                            hall_id = new Guid("0373ba50-086f-49b4-88d0-7f24d1857626"),
+                            movie_id = new Guid("72e1e00e-8ef0-4b9a-a1ec-18d15b361b6d"),
                             price = 250m,
-                            start_time = new DateTime(2024, 10, 28, 18, 30, 0, 0, DateTimeKind.Utc)
+                            start_time = new DateTime(2025, 1, 10, 10, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            id = new Guid("20b92c39-e8ed-49e6-99dd-fa420f1516eb"),
+                            end_time = new DateTime(2025, 1, 10, 12, 20, 0, 0, DateTimeKind.Utc),
+                            hall_id = new Guid("8facc6de-4ee7-4008-b772-0c854216ce7b"),
+                            movie_id = new Guid("72e1e00e-8ef0-4b9a-a1ec-18d15b361b6d"),
+                            price = 200m,
+                            start_time = new DateTime(2025, 1, 10, 10, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            id = new Guid("c517617b-7cc3-4fd9-8e34-21198045adc6"),
+                            end_time = new DateTime(2025, 1, 10, 14, 10, 0, 0, DateTimeKind.Utc),
+                            hall_id = new Guid("0373ba50-086f-49b4-88d0-7f24d1857626"),
+                            movie_id = new Guid("237b02ea-fc54-452b-8892-a27de9be1486"),
+                            price = 150m,
+                            start_time = new DateTime(2025, 1, 10, 12, 30, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            id = new Guid("719c5845-2674-431c-90cb-be9fc1bdd4fb"),
+                            end_time = new DateTime(2025, 1, 10, 14, 10, 0, 0, DateTimeKind.Utc),
+                            hall_id = new Guid("8facc6de-4ee7-4008-b772-0c854216ce7b"),
+                            movie_id = new Guid("72e1e00e-8ef0-4b9a-a1ec-18d15b361b6d"),
+                            price = 150m,
+                            start_time = new DateTime(2025, 1, 10, 12, 30, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            id = new Guid("7087bbcc-f73e-4f4b-9337-0b0f83510c1c"),
+                            end_time = new DateTime(2025, 1, 10, 16, 30, 0, 0, DateTimeKind.Utc),
+                            hall_id = new Guid("8facc6de-4ee7-4008-b772-0c854216ce7b"),
+                            movie_id = new Guid("72e1e00e-8ef0-4b9a-a1ec-18d15b361b6d"),
+                            price = 175m,
+                            start_time = new DateTime(2025, 1, 10, 14, 20, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            id = new Guid("28f5e9de-7780-4a72-95d6-8b2bbd66e714"),
+                            end_time = new DateTime(2025, 1, 10, 16, 30, 0, 0, DateTimeKind.Utc),
+                            hall_id = new Guid("0373ba50-086f-49b4-88d0-7f24d1857626"),
+                            movie_id = new Guid("237b02ea-fc54-452b-8892-a27de9be1486"),
+                            price = 222m,
+                            start_time = new DateTime(2025, 1, 10, 14, 20, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            id = new Guid("e7816854-eef6-4917-a8e7-7c9db44a80ee"),
+                            end_time = new DateTime(2025, 1, 10, 19, 15, 0, 0, DateTimeKind.Utc),
+                            hall_id = new Guid("8facc6de-4ee7-4008-b772-0c854216ce7b"),
+                            movie_id = new Guid("72e1e00e-8ef0-4b9a-a1ec-18d15b361b6d"),
+                            price = 275m,
+                            start_time = new DateTime(2025, 1, 10, 16, 45, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            id = new Guid("5b080204-7512-45e3-a0d3-2fabcaf58f5b"),
+                            end_time = new DateTime(2025, 1, 10, 19, 25, 0, 0, DateTimeKind.Utc),
+                            hall_id = new Guid("0373ba50-086f-49b4-88d0-7f24d1857626"),
+                            movie_id = new Guid("237b02ea-fc54-452b-8892-a27de9be1486"),
+                            price = 320m,
+                            start_time = new DateTime(2025, 1, 10, 17, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            id = new Guid("d14daa4b-b8fc-4dc5-96ec-a08e9677d4ff"),
+                            end_time = new DateTime(2025, 1, 10, 21, 5, 0, 0, DateTimeKind.Utc),
+                            hall_id = new Guid("8facc6de-4ee7-4008-b772-0c854216ce7b"),
+                            movie_id = new Guid("72e1e00e-8ef0-4b9a-a1ec-18d15b361b6d"),
+                            price = 280m,
+                            start_time = new DateTime(2025, 1, 10, 19, 30, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            id = new Guid("bc6be794-62cb-48ba-b1f6-b363d850f970"),
+                            end_time = new DateTime(2025, 1, 10, 22, 0, 0, 0, DateTimeKind.Utc),
+                            hall_id = new Guid("0373ba50-086f-49b4-88d0-7f24d1857626"),
+                            movie_id = new Guid("237b02ea-fc54-452b-8892-a27de9be1486"),
+                            price = 300m,
+                            start_time = new DateTime(2025, 1, 10, 19, 40, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            id = new Guid("9c86b428-e2e0-4ab3-9042-71e88f6e88df"),
+                            end_time = new DateTime(2025, 1, 10, 23, 50, 0, 0, DateTimeKind.Utc),
+                            hall_id = new Guid("0373ba50-086f-49b4-88d0-7f24d1857626"),
+                            movie_id = new Guid("72e1e00e-8ef0-4b9a-a1ec-18d15b361b6d"),
+                            price = 200m,
+                            start_time = new DateTime(2025, 1, 10, 22, 10, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            id = new Guid("6c026b8e-4df4-40ca-bac2-26120dffed35"),
+                            end_time = new DateTime(2025, 1, 10, 23, 0, 0, 0, DateTimeKind.Utc),
+                            hall_id = new Guid("8facc6de-4ee7-4008-b772-0c854216ce7b"),
+                            movie_id = new Guid("72e1e00e-8ef0-4b9a-a1ec-18d15b361b6d"),
+                            price = 195m,
+                            start_time = new DateTime(2025, 1, 10, 21, 10, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            id = new Guid("10bc8ed3-d387-4f75-b389-d4fdb9b6bf56"),
+                            end_time = new DateTime(2025, 1, 10, 23, 55, 0, 0, DateTimeKind.Utc),
+                            hall_id = new Guid("8facc6de-4ee7-4008-b772-0c854216ce7b"),
+                            movie_id = new Guid("237b02ea-fc54-452b-8892-a27de9be1486"),
+                            price = 230m,
+                            start_time = new DateTime(2025, 1, 10, 23, 5, 0, 0, DateTimeKind.Utc)
                         });
                 });
 
@@ -277,38 +385,38 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = new Guid("16bee7b5-7586-494b-a70b-f83f9460e0fc"),
-                            seat_id = new Guid("e117f571-bc42-43b9-8238-b713548d9f5f"),
-                            session_id = new Guid("4cff6804-98e8-4cdf-bd76-bcecf1cb2c81"),
-                            user_id = new Guid("64b31a8e-4a35-43d9-a1c6-58c6331cf516")
+                            id = new Guid("961741d7-57e1-43b3-9ce3-5caeb8901475"),
+                            seat_id = new Guid("80f41097-094f-4042-8468-a727371fb0c8"),
+                            session_id = new Guid("1cfc4e70-13fc-42b0-a72a-e73cd3f65110"),
+                            user_id = new Guid("b4840ff3-6ccf-496c-baee-9422052a2413")
                         },
                         new
                         {
-                            id = new Guid("53299b61-7a14-4d88-ba5d-a03acbd62ea3"),
-                            seat_id = new Guid("250f240c-0d2d-416f-8b81-cd6dc00e2cd0"),
-                            session_id = new Guid("4cff6804-98e8-4cdf-bd76-bcecf1cb2c81"),
-                            user_id = new Guid("64b31a8e-4a35-43d9-a1c6-58c6331cf516")
+                            id = new Guid("f9b7c59b-f25f-4550-bf32-f9925de63bec"),
+                            seat_id = new Guid("4007391c-fdee-46c1-a56b-cbb350bf2bba"),
+                            session_id = new Guid("1cfc4e70-13fc-42b0-a72a-e73cd3f65110"),
+                            user_id = new Guid("b4840ff3-6ccf-496c-baee-9422052a2413")
                         },
                         new
                         {
-                            id = new Guid("d92845b6-62cc-47d6-8406-e4aab8893272"),
-                            seat_id = new Guid("dcd6db05-5890-431e-b330-c4db4e3e6026"),
-                            session_id = new Guid("4cff6804-98e8-4cdf-bd76-bcecf1cb2c81"),
-                            user_id = new Guid("819c8d2d-5a69-4fcf-ad6d-fffbe1f44b37")
+                            id = new Guid("bfd1e2fc-da13-498d-9c2e-9a5e00fff4bf"),
+                            seat_id = new Guid("2b6ba0a0-a8ea-455b-b566-a031f6767ffa"),
+                            session_id = new Guid("1cfc4e70-13fc-42b0-a72a-e73cd3f65110"),
+                            user_id = new Guid("b7218838-84c1-4b1c-9df5-e287809a6aa7")
                         },
                         new
                         {
-                            id = new Guid("54119c01-57be-4426-82f6-907bad263f8f"),
-                            seat_id = new Guid("74999076-d875-4513-a1d3-ab322db09ccf"),
-                            session_id = new Guid("4cff6804-98e8-4cdf-bd76-bcecf1cb2c81"),
-                            user_id = new Guid("819c8d2d-5a69-4fcf-ad6d-fffbe1f44b37")
+                            id = new Guid("2e34ffbc-6559-4655-84ca-1269c2d6dcfd"),
+                            seat_id = new Guid("f646710a-1ecf-4d9a-81e1-02afa0d65b92"),
+                            session_id = new Guid("1cfc4e70-13fc-42b0-a72a-e73cd3f65110"),
+                            user_id = new Guid("b7218838-84c1-4b1c-9df5-e287809a6aa7")
                         },
                         new
                         {
-                            id = new Guid("595848fd-50c3-4e80-a0de-467837ccdee9"),
-                            seat_id = new Guid("7fc7e373-febb-408f-b226-e21dc1430f2b"),
-                            session_id = new Guid("4cff6804-98e8-4cdf-bd76-bcecf1cb2c81"),
-                            user_id = new Guid("819c8d2d-5a69-4fcf-ad6d-fffbe1f44b37")
+                            id = new Guid("3a7b419f-6bb9-4ad6-af84-f8d7cefdca94"),
+                            seat_id = new Guid("b7d06651-f93a-4520-ac81-89bd1e7972b7"),
+                            session_id = new Guid("1cfc4e70-13fc-42b0-a72a-e73cd3f65110"),
+                            user_id = new Guid("b7218838-84c1-4b1c-9df5-e287809a6aa7")
                         });
                 });
 
@@ -318,10 +426,8 @@ namespace cinema.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("chat_id")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("character varying(25)");
+                    b.Property<long>("chat_id")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("phone_number")
                         .IsRequired()
@@ -333,19 +439,22 @@ namespace cinema.Migrations
                     b.HasIndex("chat_id")
                         .IsUnique();
 
+                    b.HasIndex("phone_number")
+                        .IsUnique();
+
                     b.ToTable("tbl_user");
 
                     b.HasData(
                         new
                         {
-                            id = new Guid("64b31a8e-4a35-43d9-a1c6-58c6331cf516"),
-                            chat_id = "89123453423",
+                            id = new Guid("b4840ff3-6ccf-496c-baee-9422052a2413"),
+                            chat_id = 8912345L,
                             phone_number = "89962963698"
                         },
                         new
                         {
-                            id = new Guid("819c8d2d-5a69-4fcf-ad6d-fffbe1f44b37"),
-                            chat_id = "891245653423",
+                            id = new Guid("b7218838-84c1-4b1c-9df5-e287809a6aa7"),
+                            chat_id = 8912456L,
                             phone_number = "89967351259"
                         });
                 });

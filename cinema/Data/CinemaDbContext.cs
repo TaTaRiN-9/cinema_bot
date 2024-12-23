@@ -69,13 +69,13 @@ namespace cinema.Data
                     new User
                     {
                         id = guidUser1,
-                        chat_id = "89123453423",
+                        chat_id = 8912345,
                         phone_number = "89962963698"
                     },
                     new User
                     {
                         id = guidUser2,
-                        chat_id = "891245653423",
+                        chat_id = 8912456,
                         phone_number = "89967351259",
                     }
                     );
@@ -101,6 +101,18 @@ namespace cinema.Data
                     });
 
             Guid idSession1 = Guid.NewGuid();
+            Guid idSession2 = Guid.NewGuid();
+            Guid idSession3 = Guid.NewGuid();
+            Guid idSession4 = Guid.NewGuid();
+            Guid idSession5 = Guid.NewGuid();
+            Guid idSession6 = Guid.NewGuid();
+            Guid idSession7 = Guid.NewGuid();
+            Guid idSession8 = Guid.NewGuid();
+            Guid idSession9 = Guid.NewGuid();
+            Guid idSession10 = Guid.NewGuid();
+            Guid idSession11 = Guid.NewGuid();
+            Guid idSession12 = Guid.NewGuid();
+            Guid idSession13 = Guid.NewGuid();
 
             modelBuilder.Entity<Session>()
                 .HasData(
@@ -108,10 +120,118 @@ namespace cinema.Data
                     {
                         id = idSession1,
                         price = 250,
-                        start_time = DateTime.SpecifyKind(new DateTime(2024, 10, 28, 18, 30, 0), DateTimeKind.Utc),
-                        end_time = DateTime.SpecifyKind(new DateTime(2024, 10, 28, 20, 15, 0), DateTimeKind.Utc),
+                        start_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 10, 00, 0), DateTimeKind.Utc),
+                        end_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 12, 20, 0), DateTimeKind.Utc),
                         hall_id = idHall1,
                         movie_id = idMovie1,
+                    },
+                    new Session
+                    {
+                        id = idSession2,
+                        price = 200,
+                        start_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 10, 00, 0), DateTimeKind.Utc),
+                        end_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 12, 20, 0), DateTimeKind.Utc),
+                        hall_id = idHall2,
+                        movie_id = idMovie1,
+                    },
+                    new Session
+                    {
+                        id = idSession3,
+                        price = 150,
+                        start_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 12, 30, 0), DateTimeKind.Utc),
+                        end_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 14, 10, 0), DateTimeKind.Utc),
+                        hall_id = idHall1,
+                        movie_id = idMovie2,
+                    },
+                    new Session
+                    {
+                        id = idSession4,
+                        price = 150,
+                        start_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 12, 30, 0), DateTimeKind.Utc),
+                        end_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 14, 10, 0), DateTimeKind.Utc),
+                        hall_id = idHall2,
+                        movie_id = idMovie1,
+                    },
+                    new Session
+                    {
+                        id = idSession5,
+                        price = 175,
+                        start_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 14, 20, 0), DateTimeKind.Utc),
+                        end_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 16, 30, 0), DateTimeKind.Utc),
+                        hall_id = idHall2,
+                        movie_id = idMovie1,
+                    },
+                    new Session
+                    {
+                        id = idSession6,
+                        price = 222,
+                        start_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 14, 20, 0), DateTimeKind.Utc),
+                        end_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 16, 30, 0), DateTimeKind.Utc),
+                        hall_id = idHall1,
+                        movie_id = idMovie2,
+                    },
+                    new Session
+                    {
+                        id = idSession7,
+                        price = 275,
+                        start_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 16, 45, 0), DateTimeKind.Utc),
+                        end_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 19, 15, 0), DateTimeKind.Utc),
+                        hall_id = idHall2,
+                        movie_id = idMovie1,
+                    },
+                    new Session
+                    {
+                        id = idSession8,
+                        price = 320,
+                        start_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 17, 00, 0), DateTimeKind.Utc),
+                        end_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 19, 25, 0), DateTimeKind.Utc),
+                        hall_id = idHall1,
+                        movie_id = idMovie2,
+                    },
+                    new Session
+                    {
+                        id = idSession9,
+                        price = 280,
+                        start_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 19, 30, 0), DateTimeKind.Utc),
+                        end_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 21, 05, 0), DateTimeKind.Utc),
+                        hall_id = idHall2,
+                        movie_id = idMovie1,
+                    },
+                    new Session
+                    {
+                        id = idSession10,
+                        price = 300,
+                        start_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 19, 40, 0), DateTimeKind.Utc),
+                        end_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 22, 00, 0), DateTimeKind.Utc),
+                        hall_id = idHall1,
+                        movie_id = idMovie2,
+                    },
+                    new Session
+                    {
+                        id = idSession11,
+                        price = 200,
+                        start_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 22, 10, 0), DateTimeKind.Utc),
+                        end_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 23, 50, 0), DateTimeKind.Utc),
+                        hall_id = idHall1,
+                        movie_id = idMovie1,
+                    },
+                    new Session
+                    {
+                        id = idSession12,
+                        price = 195,
+                        start_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 21, 10, 0), DateTimeKind.Utc),
+                        end_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 23, 00, 0), DateTimeKind.Utc),
+                        hall_id = idHall2,
+                        movie_id = idMovie1,
+                    },
+                    new Session
+                    {
+                        id = idSession13,
+                        price = 230,
+                        start_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 23, 05, 0), DateTimeKind.Utc),
+                        end_time = DateTime.SpecifyKind(new DateTime(2025, 01, 10, 23, 55, 0), DateTimeKind.Utc),
+                        hall_id = idHall2,
+                        movie_id = idMovie2,
                     });
 
             Guid idTicket1 = Guid.NewGuid();

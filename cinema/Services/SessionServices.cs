@@ -39,12 +39,12 @@ namespace cinema.Services
 
             return sessions.Select(s => new AvailableMovieDto
             {
-                MovieId = s.movie?.id ?? Guid.Empty,
-                Title = s.movie?.title ?? "Неизвестно",
-                Description = s.movie?.description ?? "Нет описания",
-                SessionStartTime = s.start_time,
-                SessionEndTime = s.end_time,
-                HallName = s.hall?.name ?? "Неизвестно",
+                id = s.id,
+                title = s.movie?.title ?? "Неизвестно",
+                description = s.movie?.description ?? "Нет описания",
+                start_time = s.start_time,
+                duration = s.movie?.duration ?? 0,
+                hall_name = s.hall?.name ?? "Неизвестно",
                 Price = s.price
             }).ToList();
         }
@@ -73,6 +73,7 @@ namespace cinema.Services
 
             var result = new SessionDetailsDto
             {
+                id = session_id,
                 movie_title = session.movie.title,
                 movie_description = session.movie.description,
                 session_start_time = session.start_time,

@@ -12,8 +12,8 @@ using cinema.Data;
 namespace cinema.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20241121183319_init")]
-    partial class init
+    [Migration("20241210111734_user-replace-string-to-long")]
+    partial class userreplacestringtolong
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,12 +45,12 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = new Guid("5199fcb4-f999-4916-a095-f623692c948c"),
+                            id = new Guid("0b19381e-7fb3-4184-99ad-889eb18d280e"),
                             name = "Малый зал"
                         },
                         new
                         {
-                            id = new Guid("87f0763f-f20f-47f4-a0f0-fbe50f6f452d"),
+                            id = new Guid("78be86b9-49eb-4eea-8bfa-11fdcc4786c0"),
                             name = "Большой зал"
                         });
                 });
@@ -87,14 +87,14 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = new Guid("90725026-a9a9-4a70-9d77-88521956e2af"),
+                            id = new Guid("b91f69c2-1547-4736-b84b-d4a73d6e8664"),
                             description = "Тут некоторое описание для фильма 1",
                             duration = 104,
                             title = "Фильм 1"
                         },
                         new
                         {
-                            id = new Guid("11b607ee-7f27-4714-bf1e-39e3904e6cdb"),
+                            id = new Guid("496a1060-f32f-4c94-bf6f-60258b1b8e14"),
                             description = "Тут некоторое описание для фильма 2",
                             duration = 98,
                             title = "Фильм 2"
@@ -122,14 +122,14 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = new Guid("d11132cc-89b1-4245-b9e7-fbb1ac1715a1"),
-                            hall_id = new Guid("5199fcb4-f999-4916-a095-f623692c948c"),
+                            id = new Guid("59ff6c4f-bd1f-44dd-bf5c-c943f4bcc6fb"),
+                            hall_id = new Guid("0b19381e-7fb3-4184-99ad-889eb18d280e"),
                             number = 1
                         },
                         new
                         {
-                            id = new Guid("f98a4a5f-b415-4f49-bb91-1ede3c73274b"),
-                            hall_id = new Guid("5199fcb4-f999-4916-a095-f623692c948c"),
+                            id = new Guid("9e5d95d9-ea83-47c0-9b2b-7e76f1ca9a56"),
+                            hall_id = new Guid("0b19381e-7fb3-4184-99ad-889eb18d280e"),
                             number = 2
                         });
                 });
@@ -158,51 +158,51 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = new Guid("91e7247d-f736-4545-92a5-dd8a2c864ed0"),
+                            id = new Guid("fa23004c-4427-4ee4-9e31-5f6bf08f14f9"),
                             number = 1,
-                            row_id = new Guid("d11132cc-89b1-4245-b9e7-fbb1ac1715a1"),
+                            row_id = new Guid("59ff6c4f-bd1f-44dd-bf5c-c943f4bcc6fb"),
                             status = true
                         },
                         new
                         {
-                            id = new Guid("faef26b5-c373-4a53-96a9-5973ef34c1ff"),
-                            number = 1,
-                            row_id = new Guid("d11132cc-89b1-4245-b9e7-fbb1ac1715a1"),
-                            status = true
-                        },
-                        new
-                        {
-                            id = new Guid("1c53a0bd-9bcf-4db3-bc5f-3f64373a9245"),
+                            id = new Guid("d34df66b-f33e-4d99-aae5-7ab8ac7fdb71"),
                             number = 2,
-                            row_id = new Guid("d11132cc-89b1-4245-b9e7-fbb1ac1715a1"),
+                            row_id = new Guid("59ff6c4f-bd1f-44dd-bf5c-c943f4bcc6fb"),
                             status = true
                         },
                         new
                         {
-                            id = new Guid("e32eebcb-dde8-45f7-9445-9734943d28df"),
+                            id = new Guid("bb74c7cc-606b-4ade-bff3-d893b7d40a16"),
                             number = 3,
-                            row_id = new Guid("d11132cc-89b1-4245-b9e7-fbb1ac1715a1"),
+                            row_id = new Guid("59ff6c4f-bd1f-44dd-bf5c-c943f4bcc6fb"),
                             status = true
                         },
                         new
                         {
-                            id = new Guid("7e62a9a4-8b95-4009-b94c-35ad3e0d0052"),
+                            id = new Guid("674dad84-83ea-4210-a543-71df30f0154c"),
+                            number = 4,
+                            row_id = new Guid("59ff6c4f-bd1f-44dd-bf5c-c943f4bcc6fb"),
+                            status = true
+                        },
+                        new
+                        {
+                            id = new Guid("7b3497c5-49f5-46c1-9618-2e3455af6b58"),
                             number = 1,
-                            row_id = new Guid("f98a4a5f-b415-4f49-bb91-1ede3c73274b"),
+                            row_id = new Guid("9e5d95d9-ea83-47c0-9b2b-7e76f1ca9a56"),
                             status = true
                         },
                         new
                         {
-                            id = new Guid("65d8d5d2-69f2-4853-a094-847cbd4a2ba3"),
+                            id = new Guid("04307b99-eb3e-4eda-89cf-ac437f19bc16"),
                             number = 2,
-                            row_id = new Guid("f98a4a5f-b415-4f49-bb91-1ede3c73274b"),
+                            row_id = new Guid("9e5d95d9-ea83-47c0-9b2b-7e76f1ca9a56"),
                             status = false
                         },
                         new
                         {
-                            id = new Guid("b1de6b6c-5563-465b-9a13-037053e7ba6b"),
+                            id = new Guid("38b89d78-01d7-4cb8-9b1b-549c4740cc29"),
                             number = 3,
-                            row_id = new Guid("f98a4a5f-b415-4f49-bb91-1ede3c73274b"),
+                            row_id = new Guid("9e5d95d9-ea83-47c0-9b2b-7e76f1ca9a56"),
                             status = false
                         });
                 });
@@ -230,21 +230,19 @@ namespace cinema.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("hall_id")
-                        .IsUnique();
+                    b.HasIndex("hall_id");
 
-                    b.HasIndex("movie_id")
-                        .IsUnique();
+                    b.HasIndex("movie_id");
 
                     b.ToTable("tbl_session");
 
                     b.HasData(
                         new
                         {
-                            id = new Guid("20b5e137-053a-41d4-9a52-2cb2cc33da6d"),
+                            id = new Guid("0b8487fc-e894-4db1-8473-43e9b8dca2de"),
                             end_time = new DateTime(2024, 10, 28, 20, 15, 0, 0, DateTimeKind.Utc),
-                            hall_id = new Guid("5199fcb4-f999-4916-a095-f623692c948c"),
-                            movie_id = new Guid("90725026-a9a9-4a70-9d77-88521956e2af"),
+                            hall_id = new Guid("0b19381e-7fb3-4184-99ad-889eb18d280e"),
+                            movie_id = new Guid("b91f69c2-1547-4736-b84b-d4a73d6e8664"),
                             price = 250m,
                             start_time = new DateTime(2024, 10, 28, 18, 30, 0, 0, DateTimeKind.Utc)
                         });
@@ -279,38 +277,38 @@ namespace cinema.Migrations
                     b.HasData(
                         new
                         {
-                            id = new Guid("247bf6f9-5da8-4a0c-acad-51397c74607e"),
-                            seat_id = new Guid("91e7247d-f736-4545-92a5-dd8a2c864ed0"),
-                            session_id = new Guid("20b5e137-053a-41d4-9a52-2cb2cc33da6d"),
-                            user_id = new Guid("3e703db7-ae2d-4aad-babf-2e37339950d4")
+                            id = new Guid("7c9e5e59-e447-4bf0-82d5-81b96efed85d"),
+                            seat_id = new Guid("fa23004c-4427-4ee4-9e31-5f6bf08f14f9"),
+                            session_id = new Guid("0b8487fc-e894-4db1-8473-43e9b8dca2de"),
+                            user_id = new Guid("cffeaec1-b144-41d4-b573-5f623272d2c0")
                         },
                         new
                         {
-                            id = new Guid("8b037017-bf6b-44e4-8e3f-92f411071d51"),
-                            seat_id = new Guid("faef26b5-c373-4a53-96a9-5973ef34c1ff"),
-                            session_id = new Guid("20b5e137-053a-41d4-9a52-2cb2cc33da6d"),
-                            user_id = new Guid("3e703db7-ae2d-4aad-babf-2e37339950d4")
+                            id = new Guid("ee3d4334-e56f-4b21-bca9-7bf434aee1ce"),
+                            seat_id = new Guid("d34df66b-f33e-4d99-aae5-7ab8ac7fdb71"),
+                            session_id = new Guid("0b8487fc-e894-4db1-8473-43e9b8dca2de"),
+                            user_id = new Guid("cffeaec1-b144-41d4-b573-5f623272d2c0")
                         },
                         new
                         {
-                            id = new Guid("12fa832d-ecea-432b-9a3a-87fb5dd73b01"),
-                            seat_id = new Guid("1c53a0bd-9bcf-4db3-bc5f-3f64373a9245"),
-                            session_id = new Guid("20b5e137-053a-41d4-9a52-2cb2cc33da6d"),
-                            user_id = new Guid("8080451e-69a7-4929-a804-10b38ff050c7")
+                            id = new Guid("c26c0ae8-8131-42e4-91be-92ea52f51708"),
+                            seat_id = new Guid("bb74c7cc-606b-4ade-bff3-d893b7d40a16"),
+                            session_id = new Guid("0b8487fc-e894-4db1-8473-43e9b8dca2de"),
+                            user_id = new Guid("9e82caac-a642-4184-ae2f-19d592b7c667")
                         },
                         new
                         {
-                            id = new Guid("06c0e549-c9d2-4c60-84a0-01e1200beef1"),
-                            seat_id = new Guid("e32eebcb-dde8-45f7-9445-9734943d28df"),
-                            session_id = new Guid("20b5e137-053a-41d4-9a52-2cb2cc33da6d"),
-                            user_id = new Guid("8080451e-69a7-4929-a804-10b38ff050c7")
+                            id = new Guid("e78cdfa3-7d0c-4dc0-8e05-94c187251293"),
+                            seat_id = new Guid("674dad84-83ea-4210-a543-71df30f0154c"),
+                            session_id = new Guid("0b8487fc-e894-4db1-8473-43e9b8dca2de"),
+                            user_id = new Guid("9e82caac-a642-4184-ae2f-19d592b7c667")
                         },
                         new
                         {
-                            id = new Guid("f6688833-dc70-422e-aedc-cd9d9aad5563"),
-                            seat_id = new Guid("7e62a9a4-8b95-4009-b94c-35ad3e0d0052"),
-                            session_id = new Guid("20b5e137-053a-41d4-9a52-2cb2cc33da6d"),
-                            user_id = new Guid("8080451e-69a7-4929-a804-10b38ff050c7")
+                            id = new Guid("82babe00-0f46-4e08-9930-e2d3479e38d8"),
+                            seat_id = new Guid("7b3497c5-49f5-46c1-9618-2e3455af6b58"),
+                            session_id = new Guid("0b8487fc-e894-4db1-8473-43e9b8dca2de"),
+                            user_id = new Guid("9e82caac-a642-4184-ae2f-19d592b7c667")
                         });
                 });
 
@@ -320,10 +318,8 @@ namespace cinema.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("chat_id")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("character varying(25)");
+                    b.Property<long>("chat_id")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("phone_number")
                         .IsRequired()
@@ -335,19 +331,22 @@ namespace cinema.Migrations
                     b.HasIndex("chat_id")
                         .IsUnique();
 
+                    b.HasIndex("phone_number")
+                        .IsUnique();
+
                     b.ToTable("tbl_user");
 
                     b.HasData(
                         new
                         {
-                            id = new Guid("3e703db7-ae2d-4aad-babf-2e37339950d4"),
-                            chat_id = "89123453423",
+                            id = new Guid("cffeaec1-b144-41d4-b573-5f623272d2c0"),
+                            chat_id = 8912345L,
                             phone_number = "89962963698"
                         },
                         new
                         {
-                            id = new Guid("8080451e-69a7-4929-a804-10b38ff050c7"),
-                            chat_id = "891245653423",
+                            id = new Guid("9e82caac-a642-4184-ae2f-19d592b7c667"),
+                            chat_id = 8912456L,
                             phone_number = "89967351259"
                         });
                 });
@@ -377,14 +376,14 @@ namespace cinema.Migrations
             modelBuilder.Entity("cinema.Data.Entities.Session", b =>
                 {
                     b.HasOne("cinema.Data.Entities.Hall", "hall")
-                        .WithOne("session")
-                        .HasForeignKey("cinema.Data.Entities.Session", "hall_id")
+                        .WithMany("sessions")
+                        .HasForeignKey("hall_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("cinema.Data.Entities.Movie", "movie")
-                        .WithOne("session")
-                        .HasForeignKey("cinema.Data.Entities.Session", "movie_id")
+                        .WithMany("sessions")
+                        .HasForeignKey("movie_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -424,12 +423,12 @@ namespace cinema.Migrations
                 {
                     b.Navigation("rows");
 
-                    b.Navigation("session");
+                    b.Navigation("sessions");
                 });
 
             modelBuilder.Entity("cinema.Data.Entities.Movie", b =>
                 {
-                    b.Navigation("session");
+                    b.Navigation("sessions");
                 });
 
             modelBuilder.Entity("cinema.Data.Entities.Row", b =>

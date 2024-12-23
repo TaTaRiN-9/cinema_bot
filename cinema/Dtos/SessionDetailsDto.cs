@@ -2,6 +2,7 @@
 {
     public class SessionDetailsDto
     {
+        public Guid id { get; set; }
         public string movie_title { get; set; } = null!;
         public string movie_description { get; set; } = null!;
         public DateTime session_start_time { get; set; }

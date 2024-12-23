@@ -62,28 +62,28 @@
             Модель запроса для создания сеанса
             </summary>
         </member>
-        <member name="T:cinema.Migrations.init">
+        <member name="T:cinema.Migrations.userreplacestringtolong">
             <inheritdoc />
         </member>
-        <member name="M:cinema.Migrations.init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:cinema.Migrations.userreplacestringtolong.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:cinema.Migrations.init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:cinema.Migrations.userreplacestringtolong.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:cinema.Migrations.init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:cinema.Migrations.userreplacestringtolong.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
-        <member name="T:cinema.Migrations.addone_to_many">
+        <member name="T:cinema.Migrations.newsessionforexample">
             <inheritdoc />
         </member>
-        <member name="M:cinema.Migrations.addone_to_many.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:cinema.Migrations.newsessionforexample.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:cinema.Migrations.addone_to_many.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:cinema.Migrations.newsessionforexample.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:cinema.Migrations.addone_to_many.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:cinema.Migrations.newsessionforexample.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

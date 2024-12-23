@@ -22,7 +22,7 @@ namespace cinema.Tests
         [InlineData("89931238656", "89931238656")]
         public void CheckPhoneNumberCorrect(string phoneNumber, string resultPhoneNumber)
         {
-            string? result = User.Create("123", phoneNumber)?.phone_number;
+            string? result = User.Create(123, phoneNumber)?.phone_number;
 
             _output.WriteLine($"Входной номер: {phoneNumber}. Ожидаемый ответ: {resultPhoneNumber}. Полученный ответ: {result}");
 
@@ -38,7 +38,7 @@ namespace cinema.Tests
         [InlineData("+7-995-123-12-34", null)]
         public void CheckPhoneNumberNull(string phoneNumber, string? resultPhoneNumber)
         {
-            string? result = User.Create("123", phoneNumber)?.phone_number;
+            string? result = User.Create(123, phoneNumber)?.phone_number;
 
             _output.WriteLine($"Входной номер: {phoneNumber}. Ожидаемый ответ: {resultPhoneNumber ?? "null"}. Полученный ответ: {result ?? "null"}");
 

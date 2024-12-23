@@ -56,9 +56,14 @@ namespace cinema.Services
             return Result<List<Guid>>.Success(tickets.Select(t => t.id).ToList());
         }
 
-        public async Task<Result<List<UserTicketDto>>> GetTicketsByUserId(Guid userId)
+        public async Task<Result<List<UserTicketDto>>> GetTicketsByChatId(long chat_id)
         {
-            var ticketsResult = await _ticketRepository.GetByUserId(userId);
+            var user = await _userRepository.GetByChatId(chat_id);
+
+            if (user == null)
+                return Result<List<UserTicketDto>>.Failure("Такого пользователя не существует");
+
+            var ticketsResult = await _ticketRepository.GetByUserId(user.id);
 
             if (!ticketsResult.IsSuccess)
                 return Result<List<UserTicketDto>>.Failure(ticketsResult.Error ?? "Unknown error");

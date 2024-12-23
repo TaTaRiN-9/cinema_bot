@@ -1,8 +1,8 @@
 ﻿namespace cinema.Dtos
 {
-    public class CreateUserRequest
+    public class AddUserRequest
     {
-        public string chat_id { get; set; }
+        public long chat_id { get; set; }
         public string phone_number { get; set; }
     } 
 }

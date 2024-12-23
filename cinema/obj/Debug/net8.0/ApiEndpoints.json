@@ -238,14 +238,14 @@
   {
     "ContainingType": "cinema.Controllers.TicketController",
     "Method": "GetUserTickets",
-    "RelativePath": "api/ticket/user-tickets/{userId}",
+    "RelativePath": "api/ticket/user-tickets/{chat_id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userId",
-        "Type": "System.Guid",
+        "Name": "chat_id",
+        "Type": "System.Int64",
         "IsRequired": true
       }
     ],
@@ -261,23 +261,7 @@
     "Parameters": [
       {
         "Name": "userRequest",
-        "Type": "cinema.Dtos.CreateUserRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "cinema.Controllers.UserController",
-    "Method": "UpdatePhoneNumberUser",
-    "RelativePath": "api/user",
-    "HttpMethod": "PATCH",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userRequest",
-        "Type": "cinema.Dtos.CreateUserRequest",
+        "Type": "cinema.Dtos.AddUserRequest",
         "IsRequired": true
       }
     ],
@@ -293,7 +277,28 @@
     "Parameters": [
       {
         "Name": "chat_id",
-        "Type": "System.String",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "cinema.Controllers.UserController",
+    "Method": "UpdatePhoneNumberUser",
+    "RelativePath": "api/user/{chat_id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chat_id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      },
+      {
+        "Name": "userRequest",
+        "Type": "cinema.Dtos.UpdateUserRequest",
         "IsRequired": true
       }
     ],

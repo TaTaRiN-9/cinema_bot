@@ -14,9 +14,9 @@ namespace cinema.Services
         {
             _authOptions = authOptions;
         }
-        public string Generate(string chat_id)
+        public string Generate(long chat_id)
         {
-            var claims = new List<Claim> { new Claim(ClaimTypes.Name, chat_id) };
+            var claims = new List<Claim> { new Claim(ClaimTypes.Name, $"{chat_id}") };
 
             var jwt = new JwtSecurityToken(
                 issuer: _authOptions.ISSUER,
