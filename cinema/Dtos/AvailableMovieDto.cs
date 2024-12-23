@@ -2,12 +2,12 @@
 {
     public class AvailableMovieDto
     {
-        public Guid MovieId { get; set; }
-        public string Title { get; set; } = null!;
-        public string Description { get; set; } = null!;
-        public DateTime SessionStartTime { get; set; }
-        public DateTime SessionEndTime { get; set; }
-        public string HallName { get; set; } = null!;
+        public Guid id { get; set; }
+        public string title { get; set; } = null!;
+        public string description { get; set; } = null!;
+        public DateTime start_time { get; set; }
+        public int duration { get; set; }
+        public string hall_name { get; set; } = null!;
         public decimal Price { get; set; }
     }
 }

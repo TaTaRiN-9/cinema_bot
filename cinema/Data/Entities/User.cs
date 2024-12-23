@@ -7,19 +7,19 @@ namespace cinema.Data.Entities
     public class User
     {
         public Guid id { get; set; }
-        public string chat_id { get; set; } = null!;
+        public long chat_id { get; set; }
         public string phone_number { get; set; }
         public List<Ticket>? tickets { get; set; }
         public User() { }
 
-        private User(string chat_id, string phone_number)
+        private User(long chat_id, string phone_number)
         {
             id = Guid.NewGuid();
             this.chat_id = chat_id;
             this.phone_number = phone_number;
         }
 
-        public static User? Create(string chat_id, string phone_number)
+        public static User? Create(long chat_id, string phone_number)
         {   
             var match = Regex.Match(
                 phone_number, 

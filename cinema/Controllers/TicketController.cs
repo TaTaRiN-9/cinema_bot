@@ -37,10 +37,10 @@ namespace cinema.Controllers
             return Ok(new { Message = "Билеты успешно получены", tickets = result.Value });
         }
 
-        [HttpGet("user-tickets/{userId}")]
-        public async Task<IActionResult> GetUserTickets(Guid userId)
+        [HttpGet("user-tickets/{chat_id}")]
+        public async Task<IActionResult> GetUserTickets(long chat_id)
         {
-            var result = await _ticketServices.GetTicketsByUserId(userId);
+            var result = await _ticketServices.GetTicketsByChatId(chat_id);
 
             if (!result.IsSuccess)
                 return BadRequest(new { Message = result.Error });

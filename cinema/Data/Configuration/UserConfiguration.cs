@@ -13,8 +13,9 @@ namespace cinema.Data.Configuration
             builder.HasIndex(u => new { u.chat_id })
                 .IsUnique();
 
+            builder.HasIndex(u => u.phone_number).IsUnique();
+
             builder.Property(u => u.chat_id)
-                .HasMaxLength(25)
                 .IsRequired();
 
             builder.Property(u => u.phone_number)

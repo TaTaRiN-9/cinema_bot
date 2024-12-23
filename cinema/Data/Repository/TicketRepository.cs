@@ -49,7 +49,7 @@ namespace cinema.Data.Repository
                     .ToListAsync();
 
             if (!tickets.Any())
-                return Result<List<Ticket>>.Failure("No tickets found for the specified user.");
+                return Result<List<Ticket>>.Failure("У пользователя нет билетов.");
 
             return Result<List<Ticket>>.Success(tickets);
         }

@@ -2,6 +2,6 @@
 {
     public interface IJwtServices
     {
-        string Generate(string chat_id);
+        string Generate(long chat_id);
     }
 }

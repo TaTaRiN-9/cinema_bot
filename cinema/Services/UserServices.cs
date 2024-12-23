@@ -12,7 +12,7 @@ namespace cinema.Services
             _userRepository = userRepository;
         }
 
-        public async Task<User?> Add(CreateUserRequest userRequest)
+        public async Task<User?> Add(AddUserRequest userRequest)
         {
             User? user = User.Create(userRequest.chat_id, userRequest.phone_number);
 
@@ -21,12 +21,17 @@ namespace cinema.Services
             return await _userRepository.Create(user);
         }
 
+        public async Task<User?> GetByPhone(string phone_number)
+        {
+            return await _userRepository.GetByPhone(phone_number);
+        }
+
         public async Task<User?> GetById(Guid id)
         {
             return await _userRepository.GetById(id);
         }
 
-        public async Task<User?> GetByChatId(string chat_id)
+        public async Task<User?> GetByChatId(long chat_id)
         {
             return await _userRepository.GetByChatId(chat_id);
         }
