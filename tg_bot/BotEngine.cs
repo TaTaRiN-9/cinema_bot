@@ -259,24 +259,22 @@ namespace tg_bot
 
         private async Task HandleDefaultState(ITelegramBotClient botClient, Message message, UserState userState)
         {
-            // Тут создаем нашу клавиатуру
             var inlineKeyboard = new InlineKeyboardMarkup(
                 new List<InlineKeyboardButton[]>()
                 {
-                        // Каждый новый массив - это дополнительные строки,
                         new InlineKeyboardButton[]
                         {
-                            InlineKeyboardButton.WithCallbackData(char.ConvertFromUtf32(0x1F511) + " Регистрация", "register")
+                            InlineKeyboardButton.WithCallbackData(EmojiHelpers.KEY_REGISTER + " Регистрация", "register")
                         },
                         new InlineKeyboardButton[]
                         {
-                            InlineKeyboardButton.WithCallbackData(char.ConvertFromUtf32(0x2753) + "Справка", "help")
+                            InlineKeyboardButton.WithCallbackData(EmojiHelpers.HELP + "Справка", "help")
                         },
                 });
 
             await botClient.SendTextMessageAsync(
                 chatId: message.Chat.Id,
-                text: "Тебя приветствует бот кинотеатра \"Смотрилка\"!" + char.ConvertFromUtf32(0x1F44B),
+                text: "Тебя приветствует бот кинотеатра \"Смотрилка\"!" + EmojiHelpers.GREETING,
                 replyMarkup: inlineKeyboard);
             return;
         }
@@ -420,6 +418,14 @@ namespace tg_bot
                     tickets.Add(ticket);
                 }
             }
+
+            userState.SetState("buy_ticket");
+        }
+
+        private async Task HandleBuyTicket(ITelegramBotClient botClient, Message message, UserState userState)
+        {
+            await botClient.SendTextMessageAsync(message.Chat.Id, 
+                "Вы успешно купили билет!");
         }
     }
 }

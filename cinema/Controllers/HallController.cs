@@ -11,20 +11,25 @@ namespace cinema.Controllers
     public class HallController : ControllerBase
     {
         private readonly IHallServices _hallServices;
-        public HallController(IHallServices hallServices)
+        private readonly ILogger<HallController> _logger;
+        public HallController(IHallServices hallServices, ILogger<HallController> logger)
         {
             _hallServices = hallServices;
+            _logger = logger;
         }
 
         /// <summary>
         /// Получение всех залов
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Список залов</returns>
+        /// <response code="200">Список залов</response>
+        /// <response code="400">Ошибка при получении залов</response>
         [HttpGet("all")]
         public async Task<IActionResult> GetAll()
         {
             var result = await _hallServices.GetAllWithDetails();
 
+            _logger.LogInformation("Получение всех залов");
             if (!result.IsSuccess)
                 return BadRequest(new { Message = result.Error });
 
@@ -59,11 +64,13 @@ namespace cinema.Controllers
         ///       }
         /// </remarks>
         /// <response code="200">Возвращает созданный зал</response>
-        /// <response code="400">Если что-то пошло не так, например, такой зал уже существует</response>
+        /// <response code="400">Что-то пошло не так</response>
         [HttpPost]
         public async Task<IActionResult> AddHall(AddHallRequest addHallRequest)
         {
             var result = await _hallServices.AddHall(addHallRequest);
+
+            _logger.LogInformation("Добавление зала");
             if (!result.IsSuccess)
                 return BadRequest(new { Message = result.Error });
 
@@ -75,13 +82,16 @@ namespace cinema.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <param name="updateHallRequest"></param>
-        /// <returns></returns>
+        /// <returns>Обновленный зал</returns>
+        /// <response code="200">Обновленный зал</response>
+        /// <response code="400">Ошибка при обновлении зала</response>
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateHall(Guid id, [FromBody] UpdateHallRequest updateHallRequest)
         {
             updateHallRequest.Id = id;
             var result = await _hallServices.UpdateHall(updateHallRequest);
 
+            _logger.LogInformation("Обновление зала");
             if (!result.IsSuccess)
                 return BadRequest(new { Message = result.Error });
 
@@ -92,11 +102,15 @@ namespace cinema.Controllers
         /// Удаление зала
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>Возвращает id зала</returns>
+        /// <response code="200">id зала</response>
+        /// <response code="400">Ошибка при удалении зала</response>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHall(Guid id)
         {
             var result = await _hallServices.DeleteHall(id);
+
+            _logger.LogInformation("Удаление зала");
             
             if (!result.IsSuccess)
                 return BadRequest(new { Message = result.Error });

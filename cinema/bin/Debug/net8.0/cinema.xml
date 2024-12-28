@@ -8,7 +8,9 @@
             <summary>
             Получение всех залов
             </summary>
-            <returns></returns>
+            <returns>Список залов</returns>
+            <response code="200">Список залов</response>
+            <response code="400">Ошибка при получении залов</response>
         </member>
         <member name="M:cinema.Controllers.HallController.AddHall(cinema.Dtos.AddHallRequest)">
             <summary>
@@ -40,7 +42,7 @@
                   }
             </remarks>
             <response code="200">Возвращает созданный зал</response>
-            <response code="400">Если что-то пошло не так, например, такой зал уже существует</response>
+            <response code="400">Что-то пошло не так</response>
         </member>
         <member name="M:cinema.Controllers.HallController.UpdateHall(System.Guid,cinema.Dtos.UpdateHallRequest)">
             <summary>
@@ -48,14 +50,173 @@
             </summary>
             <param name="id"></param>
             <param name="updateHallRequest"></param>
-            <returns></returns>
+            <returns>Обновленный зал</returns>
+            <response code="200">Обновленный зал</response>
+            <response code="400">Ошибка при обновлении зала</response>
         </member>
         <member name="M:cinema.Controllers.HallController.DeleteHall(System.Guid)">
             <summary>
             Удаление зала
             </summary>
             <param name="id"></param>
+            <returns>Возвращает id зала</returns>
+            <response code="200">id зала</response>
+            <response code="400">Ошибка при удалении зала</response>
+        </member>
+        <member name="M:cinema.Controllers.MovieController.GetAll">
+            <summary>
+            Получение всех фильмов
+            </summary>
             <returns></returns>
+            <response code="200">Список всех фильмов</response>
+            <response code="400">Ошибка при получении всех фильмов</response>
+        </member>
+        <member name="M:cinema.Controllers.MovieController.AddMovie(cinema.Dtos.AddMovieRequest)">
+            <summary>
+            Создание фильма
+            </summary>
+            <param name="addMovieRequest"></param>
+            <returns></returns>
+            <remarks>
+            
+            POST  {
+                    "title": "string",
+                    "description": "string",
+                    "duration": 0,
+                    "photoUrl": "string"
+                  }
+            
+            
+            </remarks>
+            <response code="200">Возвращает созданный фильм</response>
+            <response code="400">Ошибка при создании фильма</response>
+        </member>
+        <member name="M:cinema.Controllers.MovieController.UpdateMovie(cinema.Dtos.UpdateMovieRequest)">
+            <summary>
+            Обновление данных о фильме
+            </summary>
+            <param name="updateMovieRequest"></param>
+            <returns></returns>
+            <response code="200">Обновленный фильм</response>
+            <response code="400">Ошибка при обновлении фильма</response>
+        </member>
+        <member name="M:cinema.Controllers.MovieController.DeleteMovie(System.Guid)">
+            <summary>
+            Удаление фильма
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <response code="200">Возвращает id фильма</response>
+            <response code="400">Ошибка при удалении залов</response>
+        </member>
+        <member name="M:cinema.Controllers.SessionController.GetAllSessions">
+            <summary>
+            Получение всех сеансов
+            </summary>
+            <returns></returns>
+            <response code="200">Список всех сеансов</response>
+            <response code="400">Ошибка при получении сеансов</response>
+        </member>
+        <member name="M:cinema.Controllers.SessionController.GetAvailableMovies">
+            <summary>
+            Получение всех доступных сеансов
+            </summary>
+            <returns>Возвращает все сеансы, на которые можно купить билет</returns>
+            <response code="200">Список доступных сеансов</response>
+            <response code="404">Нет доступных сеансов на данный момент</response>
+        </member>
+        <member name="M:cinema.Controllers.SessionController.GetSessionDetails(System.Guid)">
+            <summary>
+            Получение полной информации о сеансе
+            </summary>
+            <param name="session_id"></param>
+            <returns>Возвращает полную информацию о сеансе</returns>
+            <response code="200">Подробная информация о сеансе</response>
+            <response code="404">Не найден такой сеанс</response>
+        </member>
+        <member name="M:cinema.Controllers.SessionController.AddSession(cinema.Dtos.AddSessionRequest)">
+            <summary>
+            Создание сеанса
+            </summary>
+            <param name="request"></param>
+            <returns>Созданный зал</returns>
+            <response code="200">Созданный сеанс</response>
+            <response code="400">Ошибка при создание сеанса</response>
+        </member>
+        <member name="M:cinema.Controllers.SessionController.UpdateSession(System.Guid,cinema.Dtos.UpdateSessionRequest)">
+            <summary>
+            Обновление данных в сеансе
+            </summary>
+            <param name="session_id"></param>
+            <param name="request"></param>
+            <returns>Обновленный сеанс</returns>
+            <response code="200">Обновленный сеанс</response>
+            <response code="400">Ошибка при обновлении сеанса</response>
+        </member>
+        <member name="M:cinema.Controllers.SessionController.DeleteSession(System.Guid)">
+            <summary>
+            Удаление сеанса
+            </summary>
+            <param name="session_id"></param>
+            <returns>Возвращает id сеанса</returns>
+            <response code="200">id сеанса</response>
+            <response code="404">Нет такого сеанса</response>
+        </member>
+        <member name="M:cinema.Controllers.TicketController.AddTicket(cinema.Dtos.AddTicketRequest)">
+            <summary>
+            Создание билета, то есть его покупка
+            </summary>
+            <param name="addTicketRequest"></param>
+            <returns>Создание билета</returns>
+            <response code="200">Созданный билет</response>
+            <response code="400">Ошибка при формировании билета</response>
+        </member>
+        <member name="M:cinema.Controllers.TicketController.GetTickets">
+            <summary>
+            Получение всех билетов
+            </summary>
+            <returns>Возвращаются все билеты</returns>
+            <response code="200">Список билетов</response>
+            <response code="400">Произошла ошибка при получении билетов</response>
+        </member>
+        <member name="M:cinema.Controllers.TicketController.GetUserTickets(System.Int64)">
+            <summary>
+            Получение билетов определенного пользователя
+            </summary>
+            <param name="chat_id"></param>
+            <returns>Билеты пользователя</returns>
+            <response code="200">Список билетов определенного пользователя</response>
+            <response code="400">Ошибка при получении билетов пользователя</response>
+        </member>
+        <member name="M:cinema.Controllers.UserController.Add(cinema.Dtos.AddUserRequest)">
+            <summary>
+            Регистрация пользователя
+            </summary>
+            <param name="userRequest"></param>
+            <returns>Объект пользователя</returns>
+            <response code="200">Созданный пользователь</response>
+            <response code="400">Такой номер уже зарегистрирован</response>
+            <response code="400">Такой пользователь уже существует</response>
+        </member>
+        <member name="M:cinema.Controllers.UserController.GetUserByChatId(System.Int64)">
+            <summary>
+            Получение информации о пользователе
+            </summary>
+            <param name="chat_id"></param>
+            <returns></returns>
+            <response code="200">Получение информации о пользователе</response>
+            <response code="404">Пользователь не найден</response>
+        </member>
+        <member name="M:cinema.Controllers.UserController.UpdatePhoneNumberUser(System.Int64,cinema.Dtos.UpdateUserRequest)">
+            <summary>
+            Обновление номера телефона пользователя
+            </summary>
+            <param name="chat_id"></param>
+            <param name="userRequest"></param>
+            <returns>Обновленный пользователь</returns>
+            <response code="200">Возвращается пользователь</response>
+            <response code="404">Пользователь не найден</response>
+            <response code="400">Ошибка при изменении данных</response>
         </member>
         <member name="T:cinema.Dtos.AddSessionRequest">
             <summary>
