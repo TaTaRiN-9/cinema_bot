@@ -14,7 +14,12 @@ namespace cinema.Controllers
         {
             _movieServices = movieServices;
         }
-
+        /// <summary>
+        /// Получение всех фильмов
+        /// </summary>
+        /// <returns></returns>
+        /// <response code="200">Список всех фильмов</response>
+        /// <response code="400">Ошибка при получении всех фильмов</response>
         [HttpGet("all")]
         public async Task<IActionResult> GetAll()
         {
@@ -25,7 +30,24 @@ namespace cinema.Controllers
 
             return Ok(result.Value);
         }
-
+        /// <summary>
+        /// Создание фильма
+        /// </summary>
+        /// <param name="addMovieRequest"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// 
+        /// POST  {
+        ///         "title": "string",
+        ///         "description": "string",
+        ///         "duration": 0,
+        ///         "photoUrl": "string"
+        ///       }
+        /// 
+        /// 
+        /// </remarks>
+        /// <response code="200">Возвращает созданный фильм</response>
+        /// <response code="400">Ошибка при создании фильма</response>
         [HttpPost]
         public async Task<IActionResult> AddMovie([FromBody] AddMovieRequest addMovieRequest)
         {
@@ -36,6 +58,13 @@ namespace cinema.Controllers
             return Ok(result.Value);
         }
 
+        /// <summary>
+        /// Обновление данных о фильме
+        /// </summary>
+        /// <param name="updateMovieRequest"></param>
+        /// <returns></returns>
+        /// <response code="200">Обновленный фильм</response>
+        /// <response code="400">Ошибка при обновлении фильма</response>
         [HttpPatch]
         public async Task<IActionResult> UpdateMovie([FromBody] UpdateMovieRequest updateMovieRequest)
         {
@@ -45,7 +74,13 @@ namespace cinema.Controllers
 
             return Ok("success");
         }
-
+        /// <summary>
+        /// Удаление фильма
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <response code="200">Возвращает id фильма</response>
+        /// <response code="400">Ошибка при удалении залов</response>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMovie(Guid id)
         {

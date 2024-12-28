@@ -16,17 +16,24 @@ namespace cinema.Controllers
             _userServices = userServices;
             _jwtServices = jwtServices;
         }
-
+        /// <summary>
+        /// Регистрация пользователя
+        /// </summary>
+        /// <param name="userRequest"></param>
+        /// <returns>Объект пользователя</returns>
+        /// <response code="200">Созданный пользователь</response>
+        /// <response code="400">Такой номер уже зарегистрирован</response>
+        /// <response code="400">Такой пользователь уже существует</response>
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] AddUserRequest userRequest)
         {
             var checkUser = await _userServices.GetByPhone(userRequest.phone_number);
 
-            if (checkUser != null) return Ok("Такой номер уже зарегистрирован");
+            if (checkUser != null) return BadRequest("Такой номер уже зарегистрирован");
 
             checkUser = await _userServices.GetByChatId(userRequest.chat_id);
 
-            if (checkUser != null) return Ok("Такой пользователь уже существует!");
+            if (checkUser != null) return BadRequest("Такой пользователь уже существует!");
 
             var user = await _userServices.Add(userRequest);
 
@@ -40,7 +47,13 @@ namespace cinema.Controllers
 
             return Created("Success", response);
         }
-
+        /// <summary>
+        /// Получение информации о пользователе
+        /// </summary>
+        /// <param name="chat_id"></param>
+        /// <returns></returns>
+        /// <response code="200">Получение информации о пользователе</response>
+        /// <response code="404">Пользователь не найден</response>
         [HttpGet("{chat_id}")]
         public async Task<IActionResult> GetUserByChatId(long chat_id)
         {
@@ -50,7 +63,15 @@ namespace cinema.Controllers
             
             return NotFound();
         }
-
+        /// <summary>
+        /// Обновление номера телефона пользователя
+        /// </summary>
+        /// <param name="chat_id"></param>
+        /// <param name="userRequest"></param>
+        /// <returns>Обновленный пользователь</returns>
+        /// <response code="200">Возвращается пользователь</response>
+        /// <response code="404">Пользователь не найден</response>
+        /// <response code="400">Ошибка при изменении данных</response>
         [HttpPatch("{chat_id}")]
         public async Task<IActionResult> UpdatePhoneNumberUser(long chat_id, [FromBody] UpdateUserRequest userRequest)
         {

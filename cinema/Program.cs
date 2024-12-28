@@ -16,6 +16,7 @@ using cinema.Abstractions.Halls;
 using cinema.Abstractions.Rows;
 using System.Reflection;
 using Microsoft.OpenApi.Models;
+using cinema.Broker;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -100,6 +101,8 @@ builder.Services.AddScoped<IRowRepository, RowRepository>();
 builder.Services.AddScoped<ISeatRepository, SeatRepository>();
 
 builder.Services.AddScoped<IJwtServices, JwtServices>();
+
+builder.Services.AddScoped<IRabbitMqService, RabbitMqService>();
 
 var app = builder.Build();
 

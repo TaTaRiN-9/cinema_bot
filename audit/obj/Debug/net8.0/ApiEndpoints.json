@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "audit.Controllers.StatisticController",
+    "Method": "GetStatistics",
+    "RelativePath": "api/statistics/{chat_id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chat_id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
